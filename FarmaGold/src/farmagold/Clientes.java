@@ -1,0 +1,82 @@
+package farmagold;
+
+
+public class Clientes {
+    private long identificacion;
+    private String nombre;
+    private String apellidos;
+    private String email;
+    private long telefono;
+    private boolean active;
+
+    // Constructores
+    public Clientes() {
+        this.identificacion = 0;
+        this.nombre = "";
+        this.apellidos = "";
+        this.email = "";
+        this.telefono = 0;
+        this.active = false;
+    }
+    
+    public Clientes(long identificacion, String nombre, String apellidos, String email, long telefono) {
+        this.identificacion = identificacion;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.telefono = telefono;
+        this.active = true;
+    }
+
+
+    // Getters and setters
+
+    public long getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(long identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public long getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(long telefono) {
+        this.telefono = telefono;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+    
+}
