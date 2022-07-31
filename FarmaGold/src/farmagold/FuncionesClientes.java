@@ -4,14 +4,27 @@ import javax.swing.*;
 public class FuncionesClientes {
     
     // Definimos un arreglo de 100 clientes por dia
-    public Clientes listaClientes[] = new Clientes[5];
+    Clientes listaClientes[] = new Clientes[5];
     
     
-    // COnstructores
+    // Constructores
     public FuncionesClientes() {
         clienteEstab();
-        agregarCliente();
-        mostrarListaClients();
+        
+        
+        while (true) {
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea realizar? \n(1) Mostrar clientes\n(2) Agregar nuevo cliente\n(3) Buscar cliente\n(4) Salir"));
+       
+            if (opcion == 1) {
+                mostrarListaClientes();
+            } else if (opcion == 2) {
+                agregarCliente();
+            } else if (opcion == 3) {
+                System.out.println("Buscar cliente");
+            } else if (opcion == 4) {
+                break;
+            }
+        }
     }
     
     
@@ -20,6 +33,7 @@ public class FuncionesClientes {
     public void clienteEstab() {
         listaClientes[0] = new Clientes(11121212, "Isaac", "Lopez", "ilopez@gmail.com", 87654325);
     }
+    
     public void agregarCliente() {
         int index = listaClientes.length - 1;
         int new_client = 0;
@@ -43,7 +57,7 @@ public class FuncionesClientes {
         }
     }
     
-    public void mostrarListaClients() {
+    public void mostrarListaClientes() {
         for (int c=0; c<listaClientes.length; c++) {
             String info = "";
             info += listaClientes[c].getNombre();

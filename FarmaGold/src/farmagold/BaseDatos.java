@@ -3,10 +3,24 @@ import javax.swing.*;
 
 public class BaseDatos {
     
-    // Funciones 
-    public void empleados() {
-        Empleados fEm = new Empleados();
+    // constructor
+    public BaseDatos() {
+        String opciones = "Has entrado a la base de datos\n- - - - - - - - - - - - - - - - - - \nQue desea modificar? \n(1) Empleados"
+                + "\n(2) Clientes\n(3) Medicamentos\n(4) Salir";
         
-        
+        while (true) {
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, opciones));
+            
+            if (opcion == 1) {
+                FuncionEmpleados empleados = new FuncionEmpleados();
+            } else if (opcion == 2) {
+                FuncionesClientes clientes = new FuncionesClientes();
+            } else if (opcion == 3) {
+                System.out.println("medicamentos");
+            } else if (opcion == 4) {
+                break;
+            }
+        }
     }
+        
 }

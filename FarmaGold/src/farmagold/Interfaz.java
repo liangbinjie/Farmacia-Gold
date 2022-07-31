@@ -12,7 +12,7 @@ public class Interfaz {
         if (opcion == 1) {
             System.out.println("vender");
         } else if (opcion == 2) {
-            FuncionEmpleados fEm = new FuncionEmpleados();
+            BaseDatos dataBase = new BaseDatos();
         } else if (opcion == 3) {
             break;
         }
