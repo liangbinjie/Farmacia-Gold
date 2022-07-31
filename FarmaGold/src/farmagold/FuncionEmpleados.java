@@ -5,21 +5,20 @@ import javax.swing.*;
 public class FuncionEmpleados {
 
     // La farmacia tiene un total de 10 empleados
-    public Empleados listaEmpleados[] = new Empleados[10];
 
     // Constructores
-    public FuncionEmpleados() {
-        empleadosEstablecidos();
-        nuevoEmpleado();
+    public FuncionEmpleados(Empleados listaEmpleados[]) {
+        empleadosEstablecidos(listaEmpleados);
+        nuevoEmpleado(listaEmpleados);
         
         while (true) {
             int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea realizar? \n(1) Mostrar empleados\n(2) Mostrar lista de empleados\n(3) Agregar nuevo empleado\n(4) Salir"));
        
             if (opcion == 1) {
-                mostrarEmpleados();
+                mostrarEmpleados(listaEmpleados);
                 break;
             } else if (opcion == 2) {
-                mostrarLista();
+                mostrarLista(listaEmpleados);
                 break;
             } else if (opcion == 4) {
                 break;
@@ -29,19 +28,19 @@ public class FuncionEmpleados {
 
     // Funciones
 
-    public void empleadosEstablecidos() {
+    public void empleadosEstablecidos(Empleados listaEmpleados[]) {
         // Funcion para definir los usuarios/empleados establecidos
         listaEmpleados[0] = new Empleados(115600413, "benji", "admin12345", "Binjie", "Liang", (byte)19, "San Jose", "100 mts este de la iglesia", "mailandresliang@gmail.com", 86651234);
         listaEmpleados[1] = new Empleados(987654321, "ajbustos", "ajB12345", "Aaron", "Bustos Peralta", (byte)18, "San Jose", "200 mts este de la iglesia", "mailandresliang@gmail.com", 85655324);
         listaEmpleados[2] = new Empleados(123456734, "jxazof", "azof0987", "Jimena", "Azofeifa Porras", (byte)19, "Heredia", "100 mts norte de la iglesia", "mailandresliang@gmail.com", 86674543);
         listaEmpleados[3] = new Empleados(132115642, "aleon", "leon2023", "Andres", "Leon Jimenez", (byte)21, "Cartago", "100 mts sur de la iglesia", "mailandresliang@gmail.com", 83554421);
     }
-    public void nuevoEmpleado() {
+    public void nuevoEmpleado(Empleados listaEmpleados[]) {
         for(int i=4; i<listaEmpleados.length; i++) {
             listaEmpleados[i] = new Empleados();
         }
     }
-    public void mostrarLista() {
+    public void mostrarLista(Empleados listaEmpleados[]) {
         String lista = "";
         for (int i=0; i<listaEmpleados.length;i++) {
             lista += (i+1) + listaEmpleados[i].getNombre() + "\n";
@@ -49,7 +48,7 @@ public class FuncionEmpleados {
         JOptionPane.showMessageDialog(null, lista);
     }
 
-    public void mostrarEmpleados() {
+    public void mostrarEmpleados(Empleados listaEmpleados[]) {
         for(int i=0; i<listaEmpleados.length; i++) {
             String info = "";
             String encrypt_pass = encriptar(listaEmpleados[i].getPassword());
