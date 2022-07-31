@@ -11,7 +11,20 @@ public class FuncionEmpleados {
     public FuncionEmpleados() {
         empleadosEstablecidos();
         nuevoEmpleado();
-        mostrarLista();
+        
+        while (true) {
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea realizar? \n(1) Mostrar empleados\n(2) Mostrar lista de empleados\n(3) Agregar nuevo empleado\n(4) Salir"));
+       
+            if (opcion == 1) {
+                mostrarEmpleados();
+                break;
+            } else if (opcion == 2) {
+                mostrarLista();
+                break;
+            } else if (opcion == 4) {
+                break;
+            }
+        }
     }
 
     // Funciones
@@ -28,9 +41,15 @@ public class FuncionEmpleados {
             listaEmpleados[i] = new Empleados();
         }
     }
-
-
     public void mostrarLista() {
+        String lista = "";
+        for (int i=0; i<listaEmpleados.length;i++) {
+            lista += (i+1) + listaEmpleados[i].getNombre() + "\n";
+        }
+        JOptionPane.showMessageDialog(null, lista);
+    }
+
+    public void mostrarEmpleados() {
         for(int i=0; i<listaEmpleados.length; i++) {
             String info = "";
             String encrypt_pass = encriptar(listaEmpleados[i].getPassword());
