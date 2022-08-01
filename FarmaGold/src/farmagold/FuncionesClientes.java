@@ -6,8 +6,12 @@ public class FuncionesClientes {
     
     // Constructores
     public FuncionesClientes(Clientes listaClientes[]) {
-        clienteEstab(listaClientes);
-        
+        listaClientes[0] = new Clientes(1, "Default", "Cliente", "cliente@gmail.com", 1); // cliente por defecto
+        for (int i=listaClientes.length-1; i>=0; i--) { // los espacios en null les agregamos campos en blanco
+            if (listaClientes[i] == null) {
+                listaClientes[i] = new Clientes();
+            }
+        }
         
         while (true) {
             int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea realizar? \n(1) Mostrar clientes\n(2) Agregar nuevo cliente\n(3) Buscar cliente\n(4) Salir"));
@@ -26,23 +30,14 @@ public class FuncionesClientes {
     
     
     // Funciones
-    
-    public void clienteEstab(Clientes listaClientes[]) {
-        listaClientes[0] = new Clientes(11121212, "Isaac", "Lopez", "ilopez@gmail.com", 87654325);
-        for (int i=listaClientes.length-1; i>=0; i--) {
-            if (listaClientes[i] == null) {
-                listaClientes[i] = new Clientes();
-            }
-        }
-    }
-    
+
     public void agregarCliente(Clientes listaClientes[]) {
         int index = listaClientes.length - 1;
         int new_client = 0;
-        for(int c=index; c>=0; c--) {
-            if (listaClientes[c] == null || listaClientes[c].isActive() == false) {
+        for(int i=index; i>=0; i--) {
+            if (listaClientes[i] == null || listaClientes[i].isActive() == false) {
                 index--;
-                listaClientes[c] = new Clientes();
+                listaClientes[i] = new Clientes();
                 
             } else {
                 
@@ -53,18 +48,18 @@ public class FuncionesClientes {
                 listaClientes[new_client].setEmail(JOptionPane.showInputDialog("Ingrese el email: "));
                 listaClientes[new_client].setTelefono(Long.parseLong(JOptionPane.showInputDialog("Ingrese el numero telefonico: ")));
                 listaClientes[new_client].setActive(true);
-                break;
-                
             }
         }
     }
     
     public void mostrarListaClientes(Clientes listaClientes[]) {
-        for (int c=0; c<listaClientes.length; c++) {
-            String info = "";
-            info += listaClientes[c].getNombre();
-            
-            JOptionPane.showMessageDialog(null, info);
+        for (int i=0; i<listaClientes.length; i++) {
+            if (listaClientes[i].isActive() == true) {
+                String info = "";
+                info += listaClientes[i].getNombre();
+
+                JOptionPane.showMessageDialog(null, info);
+            }
         }
     }
 }
