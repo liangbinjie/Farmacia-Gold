@@ -17,20 +17,21 @@ public class FuncionEmpleados {
         }
         
         while (true) {
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea realizar? \n(1) Mostrar empleados\n(2) Mostrar lista de empleados"
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Estas en la base de datos de los empleados\n- - - - - - - - - - - - - - - -"
+                    + "\nQue desea realizar? \n(1) Mostrar empleados\n(2) Mostrar lista de empleados"
                     + "\n(3) Agregar nuevo empleado\n(4) Buscar Empleado\n(5) Salir"));
        
             if (opcion == 1) {
                 mostrarEmpleados(listaEmpleados);
-                break;
+
             } else if (opcion == 2) {
                 mostrarLista(listaEmpleados);
-                break;
+
             } else if (opcion == 3) {
                 agregarNuevoEmpleado(listaEmpleados);;
             } else if (opcion == 4) {
                 buscarEmpleadoID(listaEmpleados);
-                break;
+
             } else if (opcion == 5) {
                 break;
             }
