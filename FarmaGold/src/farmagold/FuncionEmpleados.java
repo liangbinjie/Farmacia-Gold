@@ -75,20 +75,23 @@ public class FuncionEmpleados {
     public void mostrarLista(Empleados listaEmpleados[]) {
         String lista = "";
         for (int i=0; i<listaEmpleados.length;i++) {
-            lista += (i+1) + listaEmpleados[i].getNombre() + "\n";
+            lista += (i+1) + ". " + listaEmpleados[i].getNombre() + "\n";
         }
         JOptionPane.showMessageDialog(null, lista);
     }
 
     public void mostrarEmpleados(Empleados listaEmpleados[]) {
         for(int i=0; i<listaEmpleados.length; i++) {
-            String info = "";
-            String encrypt_pass = encriptar(listaEmpleados[i].getPassword());
-            info += "Identificacion: " + listaEmpleados[i].getIdentificacion() + "\nNombre usuario: " + listaEmpleados[i].getNickname()
-                    + "\nContraseña: " + encrypt_pass + "\n- - - - - - - - - - - - - - - - - - - - -" + "\nNombre: " + listaEmpleados[i].getNombre() + " " + listaEmpleados[i].getApellidos()
-                    + "\nEdad: " + listaEmpleados[i].getEdad() + "\nCiudad: " + listaEmpleados[i].getCiudad() + "\nDireccion: " + listaEmpleados[i].getDireccion()
-                    + "\nEmail: " + listaEmpleados[i].getEmail() + "\nTelefono: " + listaEmpleados[i].getTelefono() + "\nEstatus: " + listaEmpleados[i].isActive();
-            JOptionPane.showMessageDialog(null, info);
+            if (listaEmpleados[i].isActive() == true) {
+                String info = "";
+                String encrypt_pass = encriptar(listaEmpleados[i].getPassword());
+                info += "Identificacion: " + listaEmpleados[i].getIdentificacion() + "\nNombre usuario: " + listaEmpleados[i].getNickname()
+                        + "\nContraseña: " + encrypt_pass + "\n- - - - - - - - - - - - - - - - - - - - -" + "\nNombre: " + listaEmpleados[i].getNombre() + " " + listaEmpleados[i].getApellidos()
+                        + "\nEdad: " + listaEmpleados[i].getEdad() + "\nCiudad: " + listaEmpleados[i].getCiudad() + "\nDireccion: " + listaEmpleados[i].getDireccion()
+                        + "\nEmail: " + listaEmpleados[i].getEmail() + "\nTelefono: " + listaEmpleados[i].getTelefono() + "\nEstatus: " + listaEmpleados[i].isActive();
+                JOptionPane.showMessageDialog(null, info);
+            }
+            
         }
 
     }
