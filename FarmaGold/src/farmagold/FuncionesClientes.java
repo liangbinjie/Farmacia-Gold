@@ -21,7 +21,7 @@ public class FuncionesClientes {
             } else if (opcion == 2) {
                 agregarCliente(listaClientes);
             } else if (opcion == 3) {
-                System.out.println("Buscar cliente");
+                buscarClienteID(listaClientes);
             } else if (opcion == 4) {
                 break;
             }
@@ -60,6 +60,30 @@ public class FuncionesClientes {
 
                 JOptionPane.showMessageDialog(null, info);
             }
+        }
+    }
+    
+    
+    // Funcion para buscar cliente por identificacion
+    public void buscarClienteID(Clientes listaClientes[]) {
+        Long search_id = Long.parseLong(JOptionPane.showInputDialog(null, "Ingrese la identificacion a buscar: "));
+        
+        int found_index = 0;
+        boolean found = false;
+        for (int i=0; i<listaClientes.length; i++) {
+
+            if (listaClientes[i].getIdentificacion() == search_id) {
+                found_index = i;
+                found = true;
+            }  
+        }
+        if (found == true) {
+            String info = "";
+            info += "Identificacion: " + listaClientes[found_index].getIdentificacion() + "\nNombre: " + listaClientes[found_index].getNombre() + " " + listaClientes[found_index].getApellidos()
+                + "\nEmail: " + listaClientes[found_index].getEmail() + "\nTelefono: " + listaClientes[found_index].getTelefono();
+            JOptionPane.showMessageDialog(null, info);
+        } else {
+            JOptionPane.showMessageDialog(null, "Cliente no encontrado");
         }
     }
 }
