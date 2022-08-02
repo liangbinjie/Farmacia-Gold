@@ -31,6 +31,7 @@ public class FuncionEmpleados {
                 agregarNuevoEmpleado(listaEmpleados);;
             } else if (opcion == 4) {
                 buscarEmpleadoID(listaEmpleados);
+                buscarEmpleadoUser(listaEmpleados);
 
             } else if (opcion == 5) {
                 break;
@@ -118,6 +119,31 @@ public class FuncionEmpleados {
             if (listaEmpleados[i].getIdentificacion() == search_id) {
                 found_index = i;
                 found = true;
+            }  
+        }
+        if (found == true) {
+            String info = "";
+            String encrypt_pass = encriptar(listaEmpleados[found_index].getPassword());
+            info += "Identificacion: " + listaEmpleados[found_index].getIdentificacion() + "\nNombre usuario: " + listaEmpleados[found_index].getNickname()
+                + "\nContraseña: " + encrypt_pass + "\n- - - - - - - - - - - - - - - - - - - - -" + "\nNombre: " + listaEmpleados[found_index].getNombre() + " " + listaEmpleados[found_index].getApellidos()
+                + "\nEdad: " + listaEmpleados[found_index].getEdad() + "\nCiudad: " + listaEmpleados[found_index].getCiudad() + "\nDireccion: " + listaEmpleados[found_index].getDireccion()
+                + "\nEmail: " + listaEmpleados[found_index].getEmail() + "\nTelefono: " + listaEmpleados[found_index].getTelefono() + "\nEstatus: " + listaEmpleados[found_index].isActive();
+            JOptionPane.showMessageDialog(null, info);
+        } else {
+            JOptionPane.showMessageDialog(null, "Empleado no encontrado");
+        }
+    }
+    
+    public void buscarEmpleadoUser(Empleados listaEmpleados[]) {
+        String search_user = JOptionPane.showInputDialog(null, "Ingrese el nombre de usuario a buscar: ");
+        int found_index = 0;
+        boolean found = false;
+        
+        for (int i=0; i<listaEmpleados.length; i++) {
+            if (listaEmpleados[i].getNickname().equals(search_user)) {
+                found_index = i;
+                found = true;
+                System.out.println("True");
             }  
         }
         if (found == true) {
