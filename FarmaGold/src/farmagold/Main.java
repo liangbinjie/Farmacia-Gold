@@ -16,7 +16,22 @@ public class Main {
 
         
         Clientes listaClientes[] = new Clientes[5]; // lista Clientes global
-        Interfaz gui = new Interfaz(listaEmpleados, listaClientes);
+        listaClientes[0] = new Clientes(1, "Default", "Cliente", "cliente@gmail.com", 1); // cliente por defecto
+        for (int i=listaClientes.length-1; i>=0; i--) { // los espacios en null les agregamos campos en blanco
+            if (listaClientes[i] == null) {
+                listaClientes[i] = new Clientes();
+            }
+        }
+        
+        
+        Ventas facturas[] = new Ventas[5];
+        facturas[0] = new Ventas(1, "benji", 115600413, "Default", "Nada", 0);
+        for (int i=facturas.length-1; i>=0; i--) { // los espacios en null les agregamos campos en blanco
+            if (facturas[i] == null) {
+                facturas[i] = new Ventas();
+            }
+        }
+        Interfaz gui = new Interfaz(listaEmpleados, listaClientes, facturas);
     }
     
 }

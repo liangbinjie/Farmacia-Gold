@@ -15,9 +15,18 @@ public class Ventas {
         this.idFactura = 0;
         this.usuario = "";
         this.clienteID = 0;
-        this.clienteID = 0;
+        this.nombreCliente = "";
         this.compra = "";
         this.monto = 0;
+    }
+    
+    public Ventas(long idFactura, String usuario, long clienteID, String nombreCliente, String compra, int monto){
+        this.idFactura = idFactura;
+        this.usuario = usuario;
+        this.clienteID = clienteID;
+        this.nombreCliente = nombreCliente;
+        this.compra = compra;
+        this.monto = monto;
     }
     
     

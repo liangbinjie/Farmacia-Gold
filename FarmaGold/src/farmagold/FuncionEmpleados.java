@@ -36,7 +36,6 @@ public class FuncionEmpleados {
     }
 
     // Funciones
-
     public void empleadosEstablecidos(Empleados listaEmpleados[]) {
         // Funcion para definir los usuarios/empleados establecidos
         listaEmpleados[0] = new Empleados(115600413, "benji", "admin12345", "Binjie", "Liang", (byte)19, "San Jose", "100 mts este de la iglesia", "mailandresliang@gmail.com", 86651234);
@@ -44,6 +43,7 @@ public class FuncionEmpleados {
         listaEmpleados[2] = new Empleados(123456734, "jxazof", "azof0987", "Jimena", "Azofeifa Porras", (byte)19, "Heredia", "100 mts norte de la iglesia", "mailandresliang@gmail.com", 86674543);
         listaEmpleados[3] = new Empleados(132115642, "aleon", "leon2023", "Andres", "Leon Jimenez", (byte)21, "Cartago", "100 mts sur de la iglesia", "mailandresliang@gmail.com", 83554421);
     }
+    
     public void agregarNuevoEmpleado(Empleados listaEmpleados[]) {
         int indice = listaEmpleados.length - 1;
         int append_index = 0;
@@ -69,6 +69,7 @@ public class FuncionEmpleados {
             }
         }
     }
+    
     public void mostrarLista(Empleados listaEmpleados[]) {
         String lista = "";
         for (int i=0; i<listaEmpleados.length;i++) {
@@ -103,7 +104,6 @@ public class FuncionEmpleados {
         return pass_encrypt;
     }
 
-
     // Funcion para buscar empleado por numero de identificacion
     public void buscarEmpleadoID(Empleados listaEmpleados[]) {
         Long search_id = Long.parseLong(JOptionPane.showInputDialog(null, "Ingrese la identificacion a buscar: "));
@@ -129,7 +129,8 @@ public class FuncionEmpleados {
             JOptionPane.showMessageDialog(null, "Empleado no encontrado");
         }
     }
-
+    
+    // Funcion para buscar empleado por nombre de usuario
     public void buscarEmpleadoUser(Empleados listaEmpleados[]) {
         String search_user = JOptionPane.showInputDialog(null, "Ingrese el nombre de usuario a buscar: ");
         int found_index = 0;
@@ -154,8 +155,9 @@ public class FuncionEmpleados {
             JOptionPane.showMessageDialog(null, "Empleado no encontrado");
         }
     }
-
-    public void iniciarSesion(Empleados listaEmpleados[]) {
+    
+    // Funcion para iniciar sesion
+    public boolean iniciarSesion(Empleados listaEmpleados[], Ventas facturas[]) {
         JTextField user = new JTextField(15);
         JPasswordField pass = new JPasswordField(15);
 
@@ -166,22 +168,27 @@ public class FuncionEmpleados {
         signInPanel.add(new JLabel("Contrasena"));
         signInPanel.add(pass);
 
-        JOptionPane.showConfirmDialog(null, signInPanel,
+        int result = JOptionPane.showConfirmDialog(null, signInPanel,
                  "Autenticacion de empleado", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
         String usuario = user.getText();
         String password = String.valueOf(pass.getPassword());
+        
+        
         boolean encontrado = false;
         int found_index = 0;
         for(int i=0; i<listaEmpleados.length; i++){
             if(listaEmpleados[i].getNickname().equals(usuario) && listaEmpleados[i].getPassword().equals(password)){
                 encontrado = true;
                 System.out.println("Usuario ingresado");
+                facturas[0].setUsuario(listaEmpleados[i].getNickname());
             }
         }
         
-        if (encontrado==false) {
-            JOptionPane.showMessageDialog(null, "Empleado no esta registrado");
+        if (result == JOptionPane.CANCEL_OPTION || encontrado==false ) {
+            JOptionPane.showMessageDialog(null, "Empleado no encontrado");
         }
+        
+        return encontrado;
     }
 }

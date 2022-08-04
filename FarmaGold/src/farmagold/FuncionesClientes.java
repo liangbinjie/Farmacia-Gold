@@ -5,14 +5,11 @@ public class FuncionesClientes {
     
     
     // Constructores
-    public FuncionesClientes(Clientes listaClientes[]) {
-        listaClientes[0] = new Clientes(1, "Default", "Cliente", "cliente@gmail.com", 1); // cliente por defecto
-        for (int i=listaClientes.length-1; i>=0; i--) { // los espacios en null les agregamos campos en blanco
-            if (listaClientes[i] == null) {
-                listaClientes[i] = new Clientes();
-            }
-        }
+    public FuncionesClientes() {
         
+    }
+    public FuncionesClientes(Clientes listaClientes[]) {
+
         while (true) {
             int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea realizar? \n(1) Mostrar clientes\n(2) Agregar nuevo cliente\n(3) Buscar cliente\n(4) Salir"));
        
@@ -82,6 +79,26 @@ public class FuncionesClientes {
             info += "Identificacion: " + listaClientes[found_index].getIdentificacion() + "\nNombre: " + listaClientes[found_index].getNombre() + " " + listaClientes[found_index].getApellidos()
                 + "\nEmail: " + listaClientes[found_index].getEmail() + "\nTelefono: " + listaClientes[found_index].getTelefono();
             JOptionPane.showMessageDialog(null, info);
+        } else {
+            JOptionPane.showMessageDialog(null, "Cliente no encontrado");
+        }
+    }
+    
+    
+    // Funcion para buscar cliente por ID y obtener nombre
+    public void infoCliente(Clientes listaClientes[]) {
+        long identificacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion del cliente"));
+        boolean found = false;
+        int index = 0;
+        for(int i=0; i<listaClientes.length; i++) {
+            if(identificacion == listaClientes[i].getIdentificacion()){
+                found = true; // si se encuentra la identificacion, pone el estado de found en true
+                index = i;
+            }
+        }
+        
+        if (found==true){
+            System.out.println("Cliente: " + listaClientes[index].getNombre() + " " + listaClientes[index].getApellidos() + "\nIndentificacion del cliente: " + listaClientes[index].getIdentificacion());
         } else {
             JOptionPane.showMessageDialog(null, "Cliente no encontrado");
         }
