@@ -206,4 +206,21 @@ public class FuncionEmpleados {
         
         return encontrado;
     }
+    
+    
+    public void agregarFactura(Ventas facturas[]) {
+        int index = facturas.length -1;
+        int agregar_index = 0;
+        
+        for(int i=index; i>=0; i--){
+            if (facturas[i].getIdFactura() == 0 || facturas[i] == null){
+                facturas[i] = new Ventas();
+                index--;
+            } else {
+                agregar_index = index + 1;
+                facturas[agregar_index].setIdFactura(agregar_index);
+            }
+        }
+        
+    }
 }
