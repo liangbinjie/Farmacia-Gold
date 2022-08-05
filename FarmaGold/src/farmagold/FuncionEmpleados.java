@@ -186,7 +186,8 @@ public class FuncionEmpleados {
         }
         
         if (result == JOptionPane.CANCEL_OPTION || encontrado==false ) {
-            JOptionPane.showMessageDialog(null, "Empleado no encontrado");
+            encontrado = false;
+            JOptionPane.showMessageDialog(null, "Empleado no encontrado"); 
         }
         
         return encontrado;
