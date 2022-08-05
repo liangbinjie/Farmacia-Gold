@@ -7,7 +7,9 @@ public class FuncionesVentas {
     public FuncionesVentas(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[]){
         vender(listaEmpleados, listaClientes, facturas);
     }
-    // funciones
+    
+
+// funciones
     
     public void vender(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[]){
         datos(listaEmpleados, listaClientes, facturas);
@@ -20,8 +22,10 @@ public class FuncionesVentas {
         if (empleado.iniciarSesion(listaEmpleados, facturas)==true){         // iniciamos sesion
             System.out.println(facturas[0].getUsuario());
             FuncionesClientes cliente = new FuncionesClientes();        // preguntamos el id del cliente, busca el nombre del cliente
-            cliente.infoCliente(listaClientes); // obtenemos la informacion del cliente
-            ventaMedicamentos();
+            if(cliente.infoCliente(listaClientes) == true) {
+                // obtenemos la informacion del cliente
+                ventaMedicamentos();
+            }
         }
     }
     
@@ -52,6 +56,7 @@ public class FuncionesVentas {
             }
         }
         JOptionPane.showMessageDialog(null, compra);
+        System.out.println(compra);
         
     }
 }

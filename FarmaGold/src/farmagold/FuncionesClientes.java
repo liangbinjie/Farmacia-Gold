@@ -85,8 +85,8 @@ public class FuncionesClientes {
     }
     
     
-    // Funcion para buscar cliente por ID y obtener nombre
-    public void infoCliente(Clientes listaClientes[]) {
+    // Funcion para buscar cliente por ID y obtener nombre (Funcion usada en las funciones de ventas
+    public boolean infoCliente(Clientes listaClientes[]) {
         long identificacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion del cliente"));
         boolean found = false;
         int index = 0;
@@ -102,5 +102,7 @@ public class FuncionesClientes {
         } else {
             JOptionPane.showMessageDialog(null, "Cliente no encontrado");
         }
+        
+        return found;
     }
 }
