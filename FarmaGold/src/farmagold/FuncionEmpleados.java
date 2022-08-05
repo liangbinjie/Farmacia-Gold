@@ -26,8 +26,9 @@ public class FuncionEmpleados {
             } else if (opcion == 3) {
                 agregarNuevoEmpleado(listaEmpleados);;
             } else if (opcion == 4) {
-                buscarEmpleadoID(listaEmpleados);
-                buscarEmpleadoUser(listaEmpleados);
+//                buscarEmpleadoID(listaEmpleados);
+//                buscarEmpleadoUser(listaEmpleados);
+                modificarEstatus(listaEmpleados);
 
             } else if (opcion == 5) {
                 break;
@@ -105,10 +106,10 @@ public class FuncionEmpleados {
     }
 
     // Funcion para buscar empleado por numero de identificacion
-    public void buscarEmpleadoID(Empleados listaEmpleados[]) {
+    public int buscarEmpleadoID(Empleados listaEmpleados[]) {
         Long search_id = Long.parseLong(JOptionPane.showInputDialog(null, "Ingrese la identificacion a buscar: "));
 
-        int found_index = 0;
+        int found_index = -1;
         boolean found = false;
         for (int i=0; i<listaEmpleados.length; i++) {
 
@@ -128,6 +129,8 @@ public class FuncionEmpleados {
         } else {
             JOptionPane.showMessageDialog(null, "Empleado no encontrado");
         }
+        
+        return found_index;
     }
     
     // Funcion para buscar empleado por nombre de usuario
@@ -156,7 +159,18 @@ public class FuncionEmpleados {
         }
     }
     
-    // Funcion para iniciar sesion
+    // Funcion para modificar estado de empleado
+    public void modificarEstatus(Empleados listaEmpleados[]) {
+        int index = buscarEmpleadoID(listaEmpleados);
+        if(index==-1){
+            System.out.print("Nada");
+        } else {
+            listaEmpleados[index].setActive(false);
+            JOptionPane.showMessageDialog(null, "Empleado: " + listaEmpleados[index].getIdentificacion() + " - Se le ha desactivado su estatus de activo");
+        }
+    }
+    
+    // Funcion para iniciar sesion (usado en las funciones de ventas
     public boolean iniciarSesion(Empleados listaEmpleados[], Ventas facturas[]) {
         JTextField user = new JTextField(15);
         JPasswordField pass = new JPasswordField(15);
