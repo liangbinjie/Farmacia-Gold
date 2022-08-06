@@ -7,27 +7,12 @@ public class FuncionesVentas {
     public FuncionesVentas(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[]){
         vender(listaEmpleados, listaClientes, facturas);
     }
-    // funciones
+    
+
+// funciones
     
     public void vender(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[]){
         datos(listaEmpleados, listaClientes, facturas);
-        ventaMedicamentos();
-//        String compra = "";
-        
-//        while (true) {
-//            String buscar = JOptionPane.showInputDialog(null, "Digite el nombre o codigo de producto");
-        //    encontrado = false;
-        //    index = 0;
-//            for(int i=0; listaMedicamentos.length; i++){
-//                if(buscar[i].getNombre().equals(buscar)) {
-//                    encontrado = true;
-//                    index = i;
-//                }
-//            }
-//            if (encontrado == true){
-//                int cantidad = Integer.parseInt(JOptionPane.show)
-//        }
-        
     }
     
     public void datos(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[]){
@@ -37,8 +22,10 @@ public class FuncionesVentas {
         if (empleado.iniciarSesion(listaEmpleados, facturas)==true){         // iniciamos sesion
             System.out.println(facturas[0].getUsuario());
             FuncionesClientes cliente = new FuncionesClientes();        // preguntamos el id del cliente, busca el nombre del cliente
-            cliente.infoCliente(listaClientes); // obtenemos la informacion del cliente
-            
+            if(cliente.infoCliente(listaClientes) == true) {
+                // obtenemos la informacion del cliente
+                ventaMedicamentos();
+            }
         }
     }
     
@@ -48,9 +35,10 @@ public class FuncionesVentas {
         
         String[] botones = {"Agregar", "Continuar"};
         JPanel panelCompra = new JPanel();
-        panelCompra.add(new JLabel("Ingrese nombre o codigo del medicamento"));
+        panelCompra.add(new JLabel("Nombre o codigo del medicamento"));
         JTextField medicamento = new JTextField(10);
         panelCompra.add(medicamento);
+        panelCompra.add(new JLabel("Cantidad"));
         JTextField cantidad = new JTextField(10);
         panelCompra.add(cantidad);
         
@@ -60,7 +48,7 @@ public class FuncionesVentas {
                 null, botones, null);
         
             if (result == JOptionPane.YES_OPTION){
-                compra += medicamento.getText() + ": " + cantidad.getText();
+                compra += medicamento.getText() + ": " + cantidad.getText() + "\n";
             }
             
             if (result == JOptionPane.NO_OPTION){
@@ -68,6 +56,7 @@ public class FuncionesVentas {
             }
         }
         JOptionPane.showMessageDialog(null, compra);
+        System.out.println(compra);
         
     }
 }
