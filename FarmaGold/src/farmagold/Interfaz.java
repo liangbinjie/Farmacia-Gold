@@ -20,19 +20,5 @@ public class Interfaz {
     }
     
 }
-//Parte de Medicamentos
-public static void main(String[] args) {
-        Medicamentos array[] = new Medicamentos[5];
-        
-        
-        while (true) {
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "(1) Enter to Database\n(2) Quit"));
-            
-            if (opcion == 1) {
-                MedicamentosFunction callingMedicamentosConstructor = new MedicamentosFunction(array);
-            } else if (opcion == 2) {
-                break;
-            }
-        }
-    }
+
 
