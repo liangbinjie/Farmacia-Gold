@@ -31,7 +31,9 @@ public class Main {
                 facturas[i] = new Ventas();
             }
         }
-        Interfaz gui = new Interfaz(listaEmpleados, listaClientes, facturas);
+        
+        Medicamentos listaMedicamentos[] = new Medicamentos[100];
+        Interfaz gui = new Interfaz(listaEmpleados, listaClientes, facturas, listaMedicamentos);
     }
     
 }

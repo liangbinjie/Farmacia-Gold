@@ -33,7 +33,7 @@ public class FuncionesVentas {
     public void ventaMedicamentos() {
         String compra = "";
         
-        String[] botones = {"Agregar", "Continuar"};
+        String[] botones = {"Agregar", "Finalizar"};
         JPanel panelCompra = new JPanel();
         panelCompra.add(new JLabel("Nombre o codigo del medicamento"));
         JTextField medicamento = new JTextField(10);
@@ -49,6 +49,8 @@ public class FuncionesVentas {
         
             if (result == JOptionPane.YES_OPTION){
                 compra += medicamento.getText() + ": " + cantidad.getText() + "\n";
+                medicamento.setText("");
+                cantidad.setText("");
             }
             
             if (result == JOptionPane.NO_OPTION){

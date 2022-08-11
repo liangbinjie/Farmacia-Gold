@@ -15,7 +15,7 @@ public class FuncionEmpleados {
         while (true) {
             int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Estas en la base de datos de los empleados\n- - - - - - - - - - - - - - - -"
                     + "\nQue desea realizar? \n(1) Mostrar empleados\n(2) Mostrar lista de empleados"
-                    + "\n(3) Agregar nuevo empleado\n(4) Buscar Empleado\n(5) Salir"));
+                    + "\n(3) Agregar nuevo empleado\n(4) Buscar Empleado\n(5) Modificar estado\n(6) Salir"));
 
             if (opcion == 1) {
                 mostrarEmpleados(listaEmpleados);
@@ -26,11 +26,12 @@ public class FuncionEmpleados {
             } else if (opcion == 3) {
                 agregarNuevoEmpleado(listaEmpleados);;
             } else if (opcion == 4) {
-//                buscarEmpleadoID(listaEmpleados);
-//                buscarEmpleadoUser(listaEmpleados);
-                modificarEstatus(listaEmpleados);
+                consultarEmpleado(listaEmpleados);
+
 
             } else if (opcion == 5) {
+                modificarEstatus(listaEmpleados);
+            } else if (opcion == 6) {
                 break;
             }
         }
@@ -165,8 +166,9 @@ public class FuncionEmpleados {
         if(index==-1){
             System.out.print("Nada");
         } else {
-            listaEmpleados[index].setActive(false);
-            JOptionPane.showMessageDialog(null, "Empleado: " + listaEmpleados[index].getIdentificacion() + " - Se le ha desactivado su estatus de activo");
+            
+            JOptionPane.showMessageDialog(null, "Empleado: " + listaEmpleados[index].getIdentificacion() + " - Se le ha desactivado su estatus de " + listaEmpleados[index].isActive());
+            listaEmpleados[index].setActive(!listaEmpleados[index].isActive());
         }
     }
     
@@ -207,7 +209,7 @@ public class FuncionEmpleados {
         return encontrado;
     }
     
-    
+  
     public void agregarFactura(Ventas facturas[]) {
         int index = facturas.length -1;
         int agregar_index = 0;
@@ -221,6 +223,17 @@ public class FuncionEmpleados {
                 facturas[agregar_index].setIdFactura(agregar_index);
             }
         }
+        
+    }
+    
+    public void consultarEmpleado(Empleados listaEmpleados[]) {
+        int consulta = Integer.parseInt(JOptionPane.showInputDialog(null, "Si desea buscar por identificacion, digite 1\nSi desea buscar por nombre de usuario, digite 2"));
+        if (consulta == 1) {
+            buscarEmpleadoID(listaEmpleados);
+        } else if (consulta == 2) {
+            buscarEmpleadoUser(listaEmpleados);
+        }
+        
         
     }
 }

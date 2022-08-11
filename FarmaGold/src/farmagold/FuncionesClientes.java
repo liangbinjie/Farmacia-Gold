@@ -11,7 +11,8 @@ public class FuncionesClientes {
     public FuncionesClientes(Clientes listaClientes[]) {
 
         while (true) {
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea realizar? \n(1) Mostrar clientes\n(2) Agregar nuevo cliente\n(3) Buscar cliente\n(4) Salir"));
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea realizar? \n(1) Mostrar clientes\n(2) Agregar nuevo cliente"
+                    + "\n(3) Buscar cliente\n(4) Modificar Estatus\n(5) Salir"));
        
             if (opcion == 1) {
                 mostrarListaClientes(listaClientes);
@@ -20,6 +21,8 @@ public class FuncionesClientes {
             } else if (opcion == 3) {
                 buscarClienteID(listaClientes);
             } else if (opcion == 4) {
+                modificarEstatus(listaClientes);
+            } else if (opcion == 5) {
                 break;
             }
         }
@@ -62,7 +65,7 @@ public class FuncionesClientes {
     
     
     // Funcion para buscar cliente por identificacion
-    public void buscarClienteID(Clientes listaClientes[]) {
+    public int buscarClienteID(Clientes listaClientes[]) {
         Long search_id = Long.parseLong(JOptionPane.showInputDialog(null, "Ingrese la identificacion a buscar: "));
         
         int found_index = 0;
@@ -82,6 +85,8 @@ public class FuncionesClientes {
         } else {
             JOptionPane.showMessageDialog(null, "Cliente no encontrado");
         }
+        
+        return found_index;
     }
     
     
@@ -104,5 +109,17 @@ public class FuncionesClientes {
         }
         
         return found;
+    }
+    
+        // Funcion para modificar estado de empleado
+    public void modificarEstatus(Clientes listaClientes[]) {
+        int index = buscarClienteID(listaClientes);
+        if(index==-1){
+            System.out.print("Nada");
+        } else {
+            
+            JOptionPane.showMessageDialog(null, "Cliente: " + listaClientes[index].getIdentificacion() + " - Se le ha desactivado su estatus de " + listaClientes[index].isActive());
+            listaClientes[index].setActive(!listaClientes[index].isActive());
+        }
     }
 }
