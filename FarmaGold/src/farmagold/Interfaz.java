@@ -12,7 +12,7 @@ public class Interfaz {
         if (opcion == 1) {
             FuncionesVentas ventas = new FuncionesVentas(listaEmpleados, listaClientes, facturas);
         } else if (opcion == 2) {
-            BaseDatos dataBase = new BaseDatos(listaEmpleados, listaClientes, listaMedicamentos);
+            BaseDatos dataBase = new BaseDatos(listaEmpleados, listaClientes, listaMedicamentos, listaCasa);
         } else if (opcion == 3) {
             break;
         }
