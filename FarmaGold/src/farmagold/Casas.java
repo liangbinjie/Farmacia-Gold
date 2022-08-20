@@ -1,23 +1,21 @@
 package farmagold;
 public class Casas {
-    private String nombre;
-    private String pais;
+
+    public Casas(String nombre, String paisOrigen, long edadAntiguedad) {
+        this.nombre = nombre;
+        this.paisOrigen = paisOrigen;
+        this.edadAntiguedad = edadAntiguedad;
+    }
     
+    private String nombre;
+    private String paisOrigen;
+    private long edadAntiguedad;
     
     public Casas(){
-       this.nombre="";
-       this.pais="";
-       
-    }
-    
-    public Casas(String nombre, String pais) {
-        this.nombre = nombre;
-        this.pais = pais;
+        this.nombre="";
+        this.paisOrigen="";
+        this.edadAntiguedad=0;
         
-    }
-
-    Casas(String almacen_de_Salud) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNombre() {
@@ -28,11 +26,19 @@ public class Casas {
         this.nombre = nombre;
     }
 
-    public String getPais() {
-        return pais;
+    public String getPaisOrigen() {
+        return paisOrigen;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setPaisOrigen(String paisOrigen) {
+        this.paisOrigen = paisOrigen;
+    }
+
+    public long getEdadAntiguedad() {
+        return edadAntiguedad;
+    }
+
+    public void setEdadAntiguedad(long edadAntiguedad) {
+        this.edadAntiguedad = edadAntiguedad;
     }
 }
