@@ -30,7 +30,7 @@ public class Ventas {
     }
     
     
-    // Getters and setters 
+    // Introducimos los getters y los setters del constructor de ventas 
 
     public long getIdFactura() {
         return idFactura;
