@@ -1,22 +1,22 @@
 package farmagold;
-public class Casa {
+public class Casas {
     private String nombre;
     private String pais;
     
     
-    public Casa(){
+    public Casas(){
        this.nombre="";
        this.pais="";
        
     }
     
-    public Casa(String nombre, String pais) {
+    public Casas(String nombre, String pais) {
         this.nombre = nombre;
         this.pais = pais;
         
     }
 
-    Casa(String almacen_de_Salud) {
+    Casas(String almacen_de_Salud) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

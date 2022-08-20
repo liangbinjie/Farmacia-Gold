@@ -1,20 +1,20 @@
 package farmagold;
 import javax.swing.JOptionPane;
 public class FuncionesCasa {
-   Casa arregloCasa[]=new Casa[4];
+   Casas arregloCasa[]=new Casas[4];
    
    public void llenarDatosPredefinidos(){
-      arregloCasa[0]=new Casa("Almacen de Salud");
-      arregloCasa[1]=new Casa("Farmacia la Granja");
-      arregloCasa[2]=new Casa("Las Maldivas");
-      arregloCasa[3]=new Casa("Con Salud CS");
+      arregloCasa[0]=new Casas("Almacen de Salud");
+      arregloCasa[1]=new Casas("Farmacia la Granja");
+      arregloCasa[2]=new Casas("Las Maldivas");
+      arregloCasa[3]=new Casas("Con Salud CS");
       
     }
     
     public void llenarArreglo(){
       int x;
       for(x=1;x<4;x++){
-          Casa c=new Casa();
+          Casas c=new Casas();
           c.setNombre(JOptionPane.showInputDialog(null,
                   "Digite el nombre de la casa fabricante: "));
           c.setPais(JOptionPane.showInputDialog(null,
