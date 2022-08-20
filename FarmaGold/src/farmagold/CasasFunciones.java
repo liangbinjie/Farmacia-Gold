@@ -1,51 +1,68 @@
 package farmagold;
 import javax.swing.JOptionPane;
 public class CasasFunciones {
-   Casas arregloCasa[]=new Casas[4];
+    
+   private Casas casa[]=new Casas[5];
+   private int opcion;
    
-   public void llenarDatosPredefinidos(){
-      arregloCasa[0]=new Casas("Almacen de Salud");
-      arregloCasa[1]=new Casas("Farmacia la Granja");
-      arregloCasa[2]=new Casas("Las Maldivas");
-      arregloCasa[3]=new Casas("Con Salud CS");
+   
+   public void mostrarMenu(){
+        CasasFunciones cf=new CasasFunciones(); 
+      while(opcion!=3){
+         opcion=Integer.parseInt(JOptionPane.showInputDialog(null, """
+                                                                   ***CATALOGO DE CASAS FABRICANTES***
+                                                                   
+                                                                   1. Llenar Informacion
+                                                                   2. Mostrar Informacion
+                                                                   3. Salir
+                                                                   
+                                                                   Digite su opcion: """));
+                         
+         switch(opcion){
+             case 1 -> {
+                cf.predefinirCasas();
+                cf.llenarArreglo();
+             }
+             case 2 -> {
+                cf.mostrarArreglo();
+             }
+             case 3 -> {
+                System.exit(0);
+             }
+             default -> {
+                JOptionPane.showMessageDialog(null,
+                        "OPCION INCORRECTA!");
+             }
+         }
+      }
+   }
       
+      
+public void predefinirCasas(){
+        casa[0]=new Casas("Medicantrix","Mexico",32);
+        casa[1]=new Casas("Vaccined","Inglaterra",16);
+        
     }
     
     public void llenarArreglo(){
-      int x;
-      for(x=1;x<4;x++){
-          Casas c=new Casas();
-          c.setNombre(JOptionPane.showInputDialog(null,
-                  "Digite el nombre de la casa fabricante: "));
-          c.setPais(JOptionPane.showInputDialog(null,
-                  "Digite el pais de origen de la casa fabricante: "));
-          
-          arregloCasa[x]=c;
-      }
-   }
-   public void mostrarArreglo(){
-      int x;
-      String s="";
-      for(x=0;x<4;x++){
-          s=s+arregloCasa[x].getNombre()+"\n"+
-              arregloCasa[x].getPais()+"\n\n";
-      }         
-      JOptionPane.showMessageDialog(null,
-              "La casas fabricantes y sus paises de origen son: \n\n"+s);
-      
-   }
-   public void consultarCasa(){
-      int x;
-      String nomb;
-      nomb=JOptionPane.showInputDialog(null,
-              "Digite el nombre de la casa fabricante a buscar:");
-      for(x=0;x<4;x++){
-          if(nomb.equals(arregloCasa[x].getNombre())){
-             arregloCasa[x].setPais(arregloCasa[x].getPais()+5);
-             JOptionPane.showMessageDialog(null,
-               arregloCasa[x].getNombre()+
-               " proviene de "+arregloCasa[x].getPais());
-          }
-      }
-   }
+        int x;
+        for(x=2;x<5;x++){
+            Casas cf=new Casas();
+            
+            cf.setNombre(JOptionPane.showInputDialog(null,"Digite el nombre de la casa fabricante: "));
+            cf.setPaisOrigen(JOptionPane.showInputDialog(null, "Digite el pais de origen de la casa fabricante: "));
+            cf.setEdadAntiguedad(Long.parseLong(JOptionPane.showInputDialog(null, "Digite la edad de antiguedad de la casa fabricante: ")));
+            casa[x]=cf;
+            
+        }
+    }
+    public void mostrarArreglo(){
+        int x;
+        String s="";
+        for(x=0;x<5;x++){
+            s=s+casa[x].getNombre()+" "+casa[x].getPaisOrigen()+" "+casa[x].getEdadAntiguedad()+"\n";
+            
+        }
+        JOptionPane.showMessageDialog(null,"Los datos de las casas fabricantes son: \n"+s);
+    }
 }
