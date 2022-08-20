@@ -1,6 +1,6 @@
 package farmagold;
 import javax.swing.JOptionPane;
-public class FuncionesCasa {
+public class CasasFunciones {
    Casas arregloCasa[]=new Casas[4];
    
    public void llenarDatosPredefinidos(){

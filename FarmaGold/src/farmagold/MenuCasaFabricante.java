@@ -4,7 +4,7 @@ public class MenuCasaFabricante {
    private int opcion;
    
    public void mostrarMenu(){
-      FuncionesCasa r=new FuncionesCasa(); 
+      CasasFunciones r=new CasasFunciones(); 
       while(opcion!=3){
          opcion=Integer.parseInt(JOptionPane.showInputDialog(null, """
                                                                    ***CATALOGO DE CASAS FABRICANTES***
