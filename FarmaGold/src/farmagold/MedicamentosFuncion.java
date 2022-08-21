@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 public class MedicamentosFuncion {
     public MedicamentosFuncion(Medicamentos array[]) {
         
-        array[0] = new Medicamentos("Aspirina");
+        array[0] = new MedicamentosFuncion("Aspirina");
         
         
         while (true) {

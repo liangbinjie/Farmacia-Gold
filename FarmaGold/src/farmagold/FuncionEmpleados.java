@@ -40,10 +40,10 @@ public class FuncionEmpleados {
     // Funciones
     public void empleadosEstablecidos(Empleados listaEmpleados[]) {
         // Funcion para definir los usuarios/empleados establecidos
-        listaEmpleados[0] = new Empleados(115600413, "benji", "admin12345", "Binjie", "Liang", (byte)19, "San Jose", "100 mts este de la iglesia", "mailandresliang@gmail.com", 86651234);
-        listaEmpleados[1] = new Empleados(987654321, "ajbustos", "ajB12345", "Aaron", "Bustos Peralta", (byte)18, "San Jose", "200 mts este de la iglesia", "mailandresliang@gmail.com", 85655324);
-        listaEmpleados[2] = new Empleados(123456734, "jxazof", "azof0987", "Jimena", "Azofeifa Porras", (byte)19, "Heredia", "100 mts norte de la iglesia", "mailandresliang@gmail.com", 86674543);
-        listaEmpleados[3] = new Empleados(132115642, "aleon", "leon2023", "Andres", "Leon Jimenez", (byte)21, "Cartago", "100 mts sur de la iglesia", "mailandresliang@gmail.com", 83554421);
+        listaEmpleados[0] = new Empleados(115600413, "benji", "admin12345", "Binjie", "Liang", (byte)19, "San Jose", "100 mts este de la iglesia", "mailandresliang@gmail.com", 87234511);
+        listaEmpleados[1] = new Empleados(119010685, "ajbustos", "ajB12345", "Aaron", "Bustos Peralta", (byte)18, "San Jose", "200 mts este de la iglesia", "aaronj.bustos@gmail.com", 71708049);
+        listaEmpleados[2] = new Empleados(118860981, "jxazof", "azof0987", "Jimena", "Azofeifa Porras", (byte)19, "Heredia", "100 mts norte de la iglesia", "jazofeifa60981@ufide.ac.cr", 84933443);
+        listaEmpleados[3] = new Empleados(119020919, "aleon", "leon2023", "Andres", "Leon Jimenez", (byte)21, "Cartago", "100 mts sur de la iglesia", "andrescrcs04@gmail.com", 85057877);
     }
     
     public void agregarNuevoEmpleado(Empleados listaEmpleados[]) {

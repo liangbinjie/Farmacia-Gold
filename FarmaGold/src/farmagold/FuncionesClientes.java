@@ -29,7 +29,7 @@ public class FuncionesClientes {
     }
     
     
-    // Funciones
+    // Funciones para agregar a algun cliente que no esta en la base de datos
 
     public void agregarNuevoCliente (Clientes listaClientes[]){
         int indice = listaClientes.length-1;
@@ -76,12 +76,15 @@ public class FuncionesClientes {
         for (int i=0; i<listaClientes.length; i++) {
             if (listaClientes[i].isActive() == true) {
                 String info = "";
-                info += listaClientes[i].getNombre();
+                info +="*****Información de Clientes*****" + "\nNombre Cliente: "+ listaClientes[i].getNombre()+"\nApellidos: "+listaClientes[i].getApellidos()+"\nIdentificacion"+listaClientes[i].getIdentificacion()+
+                        "\nCorreo Electronico: "+listaClientes[i].getEmail()+"\nNumero Telefonico:"+listaClientes[i].getTelefono();
+                        
 
                 JOptionPane.showMessageDialog(null, info);
             }
-        }
+
         
+    }    
     }
     
     
