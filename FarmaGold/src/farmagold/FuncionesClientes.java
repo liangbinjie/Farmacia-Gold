@@ -89,6 +89,47 @@ public class FuncionesClientes {
         return found_index;
     }
     
+    public void agregarNuevoCliente (Clientes listaClientes[]){
+        int indice = listaClientes.length-1;
+        int new_client=0;
+        int index = 0;
+        
+        for(int i=indice; i>=0; i--) {
+            if (listaClientes[i].isActive()== false){
+                indice--;
+                
+            }else {
+                index = indice +1;
+                boolean registered = false;
+                long identificacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion"));
+                for (int x=0; x<listaClientes.length; x++){
+                    if(identificacion == listaClientes[x].getIdentificacion()){
+                        registered = true;
+                    }
+                }
+                
+                if(registered == true) {
+                    JOptionPane.showMessageDialog(null, "Este usuario ya esta registrado");
+                    break;
+                
+                }else{
+                   new_client = index+1;
+                listaClientes[new_client].setIdentificacion(Long.parseLong(JOptionPane.showInputDialog("Ingrese la identificacion: ")));
+                listaClientes[new_client].setNombre(JOptionPane.showInputDialog("Ingrese el nombre: "));
+                listaClientes[new_client].setApellidos(JOptionPane.showInputDialog("Ingrese los apellidos: "));
+                listaClientes[new_client].setEmail(JOptionPane.showInputDialog("Ingrese el email: "));
+                listaClientes[new_client].setTelefono(Long.parseLong(JOptionPane.showInputDialog("Ingrese el numero telefonico: ")));
+                listaClientes[new_client].setActive(true);
+                    
+                    
+                    
+                    
+                }
+                
+            }
+        }
+    }
+    
     
     // Funcion para buscar cliente por ID y obtener nombre (Funcion usada en las funciones de ventas
     public boolean infoCliente(Clientes listaClientes[]) {
