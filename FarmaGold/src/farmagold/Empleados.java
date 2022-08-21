@@ -1,7 +1,12 @@
 package farmagold;
 
-
 public class Empleados {
+    
+    public enum Estados {
+        Activo,
+        Inactivo
+    }
+    
     private long identificacion;
     private String nickname;
     private String password;
@@ -12,6 +17,7 @@ public class Empleados {
     private String direccion;
     private String email;
     private long telefono;
+    private Estados estado;
     private boolean active;
 
     // Constructors
@@ -26,6 +32,7 @@ public class Empleados {
         this.direccion = direccion;
         this.email = email;
         this.telefono = telefono;
+        this.estado = Estados.Activo;
         this.active = true;
     }
 
@@ -40,6 +47,7 @@ public class Empleados {
         this.direccion = "";
         this.email = "";
         this.telefono = 0;
+        this.estado = Estados.Inactivo;
         this.active = false;
     }
     
