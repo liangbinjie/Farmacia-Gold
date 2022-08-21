@@ -5,11 +5,8 @@ public class Medicamentos {
     private String categoria;
     private String fecha;
     private int precio;
-    String getPrecio;
 
-    Medicamentos(String aspirina) {
-        
-    }
+    
 
     public String getNombre() {
         return nombre;

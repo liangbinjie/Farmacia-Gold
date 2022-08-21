@@ -10,7 +10,7 @@ public class Interfaz {
     while (true) {
         int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, opciones));
         if (opcion == 1) {
-            FuncionesVentas ventas = new FuncionesVentas(listaEmpleados, listaClientes, facturas);
+            FuncionesVentas ventas = new FuncionesVentas(listaEmpleados, listaClientes, facturas, listaMedicamentos);
         } else if (opcion == 2) {
             BaseDatos dataBase = new BaseDatos(listaEmpleados, listaClientes, listaMedicamentos);
         } else if (opcion == 3) {

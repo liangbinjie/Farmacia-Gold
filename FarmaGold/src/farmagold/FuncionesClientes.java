@@ -17,7 +17,7 @@ public class FuncionesClientes {
             if (opcion == 1) {
                 mostrarListaClientes(listaClientes);
             } else if (opcion == 2) {
-                agregarCliente(listaClientes);
+                agregarNuevoCliente(listaClientes);
             } else if (opcion == 3) {
                 buscarClienteID(listaClientes);
             } else if (opcion == 4) {
@@ -34,16 +34,16 @@ public class FuncionesClientes {
     public void agregarNuevoCliente (Clientes listaClientes[]){
         int indice = listaClientes.length-1;
         int new_client=0;
-        int index = 0;
+        int new_client_index = 0;
         
         for(int i=indice; i>=0; i--) {
             if (listaClientes[i].isActive()== false){
                 indice--;
                 
             }else {
-                index = indice +1;
+                new_client_index = indice+1;
                 boolean registered = false;
-                long identificacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion"));
+                long identificacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion del cliente nuevo"));
                 for (int x=0; x<listaClientes.length; x++){
                     if(identificacion == listaClientes[x].getIdentificacion()){
                         registered = true;
@@ -51,17 +51,16 @@ public class FuncionesClientes {
                 }
                 
                 if(registered == true) {
-                    JOptionPane.showMessageDialog(null, "Este usuario ya esta registrado");
+                    JOptionPane.showMessageDialog(null, "Este cliente ya esta registrado");
                     break;
                 
-                }else{
-                   new_client = index+1;
-                listaClientes[new_client].setIdentificacion(Long.parseLong(JOptionPane.showInputDialog("Ingrese la identificacion: ")));
-                listaClientes[new_client].setNombre(JOptionPane.showInputDialog("Ingrese el nombre: "));
-                listaClientes[new_client].setApellidos(JOptionPane.showInputDialog("Ingrese los apellidos: "));
-                listaClientes[new_client].setEmail(JOptionPane.showInputDialog("Ingrese el email: "));
-                listaClientes[new_client].setTelefono(Long.parseLong(JOptionPane.showInputDialog("Ingrese el numero telefonico: ")));
-                listaClientes[new_client].setActive(true);
+                }else {
+                listaClientes[new_client_index].setIdentificacion(identificacion);
+                listaClientes[new_client_index].setNombre(JOptionPane.showInputDialog("Ingrese el nombre: "));
+                listaClientes[new_client_index].setApellidos(JOptionPane.showInputDialog("Ingrese los apellidos: "));
+                listaClientes[new_client_index].setEmail(JOptionPane.showInputDialog("Ingrese el email: "));
+                listaClientes[new_client_index].setTelefono(Long.parseLong(JOptionPane.showInputDialog("Ingrese el numero telefonico: ")));
+                listaClientes[new_client_index].setActive(true);
                     
                     
                     
