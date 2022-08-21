@@ -1,5 +1,6 @@
 package farmagold;
 import javax.swing.JOptionPane;
+
 public class MedicamentosFuncion {
     public MedicamentosFuncion(Medicamentos array[]) {
         
