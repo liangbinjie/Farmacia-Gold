@@ -17,7 +17,7 @@ public class FuncionesClientes {
             if (opcion == 1) {
                 mostrarListaClientes(listaClientes);
             } else if (opcion == 2) {
-                agregarCliente(listaClientes);
+                agregarNuevoCliente(listaClientes);
             } else if (opcion == 3) {
                 buscarClienteID(listaClientes);
             } else if (opcion == 4) {
@@ -82,6 +82,7 @@ public class FuncionesClientes {
                 JOptionPane.showMessageDialog(null, info);
             }
         }
+        
     }
     
     
