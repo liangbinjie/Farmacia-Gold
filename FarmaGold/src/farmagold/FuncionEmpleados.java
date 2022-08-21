@@ -168,7 +168,7 @@ public class FuncionEmpleados {
                 + "\nEmail: " + listaEmpleados[found_index].getEmail() + "\nTelefono: " + listaEmpleados[found_index].getTelefono() + "\nEstatus: " + listaEmpleados[found_index].isActive();
             JOptionPane.showMessageDialog(null, info);
         } else {
-            JOptionPane.showMessageDialog(null, "Empleado no encontrado");
+            JOptionPane.showMessageDialog(null, "Empleado no encontrado o datos incorrectos");
         }
     }
     
