@@ -51,23 +51,35 @@ public class FuncionEmpleados {
         int append_index = 0;
 
         for (int i=indice; i>=0; i--) {
-            if (listaEmpleados[i] == null || listaEmpleados[i].isActive() == false) {
+            if (listaEmpleados[i].isActive() == false) {
                 indice--;
 
             } else {
                 append_index = indice+1;
-                listaEmpleados[append_index].setIdentificacion(Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion")));
-                listaEmpleados[append_index].setNickname(JOptionPane.showInputDialog(null, "Digite el nombre de usuario a crear"));
-                listaEmpleados[append_index].setPassword(JOptionPane.showInputDialog(null, "Digite la contraseña a crear"));
-                listaEmpleados[append_index].setNombre(JOptionPane.showInputDialog(null, "Digite el nombre del empleado"));
-                listaEmpleados[append_index].setApellidos(JOptionPane.showInputDialog(null, "Digite los apellidos del empleado"));
-                listaEmpleados[append_index].setEdad(Byte.parseByte(JOptionPane.showInputDialog(null, "Digite la edad del empleado")));
-                listaEmpleados[append_index].setCiudad(JOptionPane.showInputDialog(null, "Digite la ciudad de residencia del empleado"));
-                listaEmpleados[append_index].setDireccion(JOptionPane.showInputDialog(null, "Digite la direccion de residencia del empleado"));
-                listaEmpleados[append_index].setEmail(JOptionPane.showInputDialog(null, "Digite el email del empleado"));
-                listaEmpleados[append_index].setTelefono(Long.parseLong(JOptionPane.showInputDialog(null, "Digite el numero telefonico del empleado")));
-                listaEmpleados[append_index].setActive(true);
-                break;
+                boolean registered = false;
+                long identificacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion"));
+                for (int x=0; x<listaEmpleados.length; x++) {
+                    if(identificacion == listaEmpleados[x].getIdentificacion()) {
+                        registered = true;
+                    }
+                }
+                if (registered == true) {
+                    JOptionPane.showMessageDialog(null, "Este usuario ya esta registrado");
+                    break;
+                } else {
+                    listaEmpleados[append_index].setIdentificacion(identificacion);
+                    listaEmpleados[append_index].setNickname(JOptionPane.showInputDialog(null, "Digite el nombre de usuario a crear"));
+                    listaEmpleados[append_index].setPassword(JOptionPane.showInputDialog(null, "Digite la contraseña a crear"));
+                    listaEmpleados[append_index].setNombre(JOptionPane.showInputDialog(null, "Digite el nombre del empleado"));
+                    listaEmpleados[append_index].setApellidos(JOptionPane.showInputDialog(null, "Digite los apellidos del empleado"));
+                    listaEmpleados[append_index].setEdad(Byte.parseByte(JOptionPane.showInputDialog(null, "Digite la edad del empleado")));
+                    listaEmpleados[append_index].setCiudad(JOptionPane.showInputDialog(null, "Digite la ciudad de residencia del empleado"));
+                    listaEmpleados[append_index].setDireccion(JOptionPane.showInputDialog(null, "Digite la direccion de residencia del empleado"));
+                    listaEmpleados[append_index].setEmail(JOptionPane.showInputDialog(null, "Digite el email del empleado"));
+                    listaEmpleados[append_index].setTelefono(Long.parseLong(JOptionPane.showInputDialog(null, "Digite el numero telefonico del empleado")));
+                    listaEmpleados[append_index].setActive(true);
+                    break;
+                }       
             }
         }
     }
@@ -208,7 +220,6 @@ public class FuncionEmpleados {
         
         return encontrado;
     }
-    
   
     public void agregarFactura(Ventas facturas[]) {
         int index = facturas.length -1;
