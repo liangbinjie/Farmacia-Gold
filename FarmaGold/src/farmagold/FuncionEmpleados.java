@@ -138,7 +138,7 @@ public class FuncionEmpleados {
             info += "Identificacion: " + listaEmpleados[found_index].getIdentificacion() + "\nNombre usuario: " + listaEmpleados[found_index].getNickname()
                 + "\nContraseña: " + encrypt_pass + "\n- - - - - - - - - - - - - - - - - - - - -" + "\nNombre: " + listaEmpleados[found_index].getNombre() + " " + listaEmpleados[found_index].getApellidos()
                 + "\nEdad: " + listaEmpleados[found_index].getEdad() + "\nCiudad: " + listaEmpleados[found_index].getCiudad() + "\nDireccion: " + listaEmpleados[found_index].getDireccion()
-                + "\nEmail: " + listaEmpleados[found_index].getEmail() + "\nTelefono: " + listaEmpleados[found_index].getTelefono() + "\nEstatus: " + listaEmpleados[found_index].isActive();
+                + "\nEmail: " + listaEmpleados[found_index].getEmail() + "\nTelefono: " + listaEmpleados[found_index].getTelefono() + "\nEstatus: " + listaEmpleados[found_index].getEstado();
             JOptionPane.showMessageDialog(null, info);
         } else {
             JOptionPane.showMessageDialog(null, "Empleado no encontrado");
@@ -166,22 +166,10 @@ public class FuncionEmpleados {
             info += "Identificacion: " + listaEmpleados[found_index].getIdentificacion() + "\nNombre usuario: " + listaEmpleados[found_index].getNickname()
                 + "\nContraseña: " + encrypt_pass + "\n- - - - - - - - - - - - - - - - - - - - -" + "\nNombre: " + listaEmpleados[found_index].getNombre() + " " + listaEmpleados[found_index].getApellidos()
                 + "\nEdad: " + listaEmpleados[found_index].getEdad() + "\nCiudad: " + listaEmpleados[found_index].getCiudad() + "\nDireccion: " + listaEmpleados[found_index].getDireccion()
-                + "\nEmail: " + listaEmpleados[found_index].getEmail() + "\nTelefono: " + listaEmpleados[found_index].getTelefono() + "\nEstatus: " + listaEmpleados[found_index].isActive();
+                + "\nEmail: " + listaEmpleados[found_index].getEmail() + "\nTelefono: " + listaEmpleados[found_index].getTelefono() + "\nEstatus: " + listaEmpleados[found_index].getEstado();
             JOptionPane.showMessageDialog(null, info);
         } else {
             JOptionPane.showMessageDialog(null, "Empleado no encontrado o datos incorrectos");
-        }
-    }
-    
-    // Funcion para modificar estado de empleado
-    public void modificarEstatus(Empleados listaEmpleados[]) {
-        int index = buscarEmpleadoID(listaEmpleados);
-        if(index==-1){
-            System.out.print("Nada");
-        } else {
-            
-            JOptionPane.showMessageDialog(null, "Empleado: " + listaEmpleados[index].getIdentificacion() + " - Se le ha desactivado su estatus de " + listaEmpleados[index].isActive());
-            listaEmpleados[index].setActive(!listaEmpleados[index].isActive());
         }
     }
     
