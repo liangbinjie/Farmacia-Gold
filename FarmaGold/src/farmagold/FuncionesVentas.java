@@ -61,7 +61,7 @@ public class FuncionesVentas {
                     medicamento.setText("");
                     cantidad.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Medicamentos no encontrado");
+                    JOptionPane.showMessageDialog(null, "Medicamentos no encontrados");
                 }
 
                 
