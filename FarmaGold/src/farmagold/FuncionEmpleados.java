@@ -15,7 +15,7 @@ public class FuncionEmpleados {
         while (true) {
             int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Estas en la base de datos de los empleados\n- - - - - - - - - - - - - - - -"
                     + "\nQue desea realizar? \n(1) Mostrar empleados\n(2) Mostrar lista de empleados"
-                    + "\n(3) Agregar nuevo empleado\n(4) Buscar Empleado\n(5) Modificar estado\n(6) Salir"));
+                    + "\n(3) Agregar nuevo empleado\n(4) Buscar Empleado\n(5) Modificar datos del empleado\n(6) Salir"));
 
             if (opcion == 1) {
                 mostrarEmpleados(listaEmpleados);
@@ -30,7 +30,8 @@ public class FuncionEmpleados {
 
 
             } else if (opcion == 5) {
-                modificarEstatus(listaEmpleados);
+                Modificadores modifiers = new Modificadores();
+                modifiers.modificarEmpleado(listaEmpleados);
             } else if (opcion == 6) {
                 break;
             }
@@ -100,7 +101,7 @@ public class FuncionEmpleados {
                 info += "Identificacion: " + listaEmpleados[i].getIdentificacion() + "\nNombre usuario: " + listaEmpleados[i].getNickname()
                         + "\nContraseña: " + encrypt_pass + "\n- - - - - - - - - - - - - - - - - - - - -" + "\nNombre: " + listaEmpleados[i].getNombre() + " " + listaEmpleados[i].getApellidos()
                         + "\nEdad: " + listaEmpleados[i].getEdad() + "\nCiudad: " + listaEmpleados[i].getCiudad() + "\nDireccion: " + listaEmpleados[i].getDireccion()
-                        + "\nEmail: " + listaEmpleados[i].getEmail() + "\nTelefono: " + listaEmpleados[i].getTelefono() + "\nEstatus: " + listaEmpleados[i].isActive();
+                        + "\nEmail: " + listaEmpleados[i].getEmail() + "\nTelefono: " + listaEmpleados[i].getTelefono() + "\nEstatus: " + listaEmpleados[i].getEstado();
                 JOptionPane.showMessageDialog(null, info);
             }
 

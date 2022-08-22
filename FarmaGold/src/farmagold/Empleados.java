@@ -134,6 +134,15 @@ public class Empleados {
         this.telefono = telefono;
     }
 
+    public Estados getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estados estado) {
+        this.estado = estado;
+    }
+    
+
     public boolean isActive() {
         return active;
     }

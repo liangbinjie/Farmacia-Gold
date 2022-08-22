@@ -76,8 +76,8 @@ public class FuncionesClientes {
         for (int i=0; i<listaClientes.length; i++) {
             if (listaClientes[i].isActive() == true) {
                 String info = "";
-                info +="*****Información de Clientes*****" + "\nNombre Cliente: "+ listaClientes[i].getNombre()+" "+listaClientes[i].getApellidos()+"\nIdentificacion"+listaClientes[i].getIdentificacion()+
-                        "\nCorreo Electronico: "+listaClientes[i].getEmail()+"\nNumero Telefonico:"+listaClientes[i].getTelefono();
+                info +="*****Información de Clientes*****" + "\nNombre Cliente: "+ listaClientes[i].getNombre()+" "+listaClientes[i].getApellidos()+"\nIdentificacion: "+listaClientes[i].getIdentificacion()+
+                        "\nCorreo Electronico: "+listaClientes[i].getEmail()+"\nNumero Telefonico: "+listaClientes[i].getTelefono();
                         
 
                 JOptionPane.showMessageDialog(null, info);
