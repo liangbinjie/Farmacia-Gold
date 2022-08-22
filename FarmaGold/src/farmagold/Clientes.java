@@ -2,11 +2,18 @@ package farmagold;
 
 
 public class Clientes {
+    
+    public enum Estados {
+        Activo,
+        Inactivo
+    }
+    
     private long identificacion;
     private String nombre;
     private String apellidos;
     private String email;
     private long telefono;
+    private Estados estado;
     private boolean active;
 
     // Constructores
@@ -16,6 +23,7 @@ public class Clientes {
         this.apellidos = "";
         this.email = "";
         this.telefono = 0;
+        this.estado = Estados.Inactivo;
         this.active = false;
     }
     
@@ -25,6 +33,7 @@ public class Clientes {
         this.apellidos = apellidos;
         this.email = email;
         this.telefono = telefono;
+        this.estado = Estados.Activo;
         this.active = true;
     }
 
@@ -69,6 +78,14 @@ public class Clientes {
 
     public void setTelefono(long telefono) {
         this.telefono = telefono;
+    }
+
+    public Estados getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estados estado) {
+        this.estado = estado;
     }
 
     public boolean isActive() {
