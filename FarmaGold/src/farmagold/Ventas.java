@@ -79,5 +79,7 @@ public class Ventas {
     public void setMonto(int monto) {
         this.monto = monto;
     }
+
+    
     
 }
