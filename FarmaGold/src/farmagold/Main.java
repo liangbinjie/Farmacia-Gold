@@ -33,6 +33,13 @@ public class Main {
         }
         
         Medicamentos listaMedicamentos[] = new Medicamentos[100];
+        for (int i=0; i<listaMedicamentos.length; i++) {
+            if (listaMedicamentos[i] == null) {
+                listaMedicamentos[i] = new Medicamentos();
+            }
+        }
+        listaMedicamentos[0] = new Medicamentos("Aspirina", "Salicilato", 1200, 54);
+        listaMedicamentos[1] = new Medicamentos("Acetaminofen", "Analgesicos", 1500, 65);
         Interfaz gui = new Interfaz(listaEmpleados, listaClientes, facturas, listaMedicamentos);
     }
     
