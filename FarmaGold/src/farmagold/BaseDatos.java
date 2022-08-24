@@ -16,7 +16,7 @@ public class BaseDatos {
             } else if (opcion == 2) {
                 FuncionesClientes clientes = new FuncionesClientes(listaClientes);
             } else if (opcion == 3) {
-                MedicamentosFuncion medicamentos = new MedicamentosFuncion(listaMedicamentos);
+                MedicamentosFunciones medicamentos = new MedicamentosFunciones(listaMedicamentos);
             } else if (opcion == 4) {
                 break;
             }

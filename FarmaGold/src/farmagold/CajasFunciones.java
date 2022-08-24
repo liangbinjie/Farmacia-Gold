@@ -21,7 +21,7 @@ public class CajasFunciones {
          switch(opcion){
              case 1 -> {
                 cf.predefinirCajas();
-                cf.llenarArreglo();
+                cf.llenarArreglo(arregloCajas[]);
              }
              case 2 -> {
                 cf.mostrarArreglo();
@@ -42,14 +42,12 @@ public class CajasFunciones {
        caja[1]=new Cajas("Maria",200);
    }
    
-   public void llenarArreglo(){
+   public void llenarArreglo(Cajas arregloCajas[]){
         int x;
         for(x=2;x<5;x++){
-            Cajas c=new Cajas();
-            
-            c.setCliente(JOptionPane.showInputDialog(null,"Digite el nombre del cliente: "));
-            c.setIngreso(Float.parseFloat(JOptionPane.showInputDialog(null, "Digite el ingreso economico realizado por el cliente: ")));
-            caja[x]=c;
+            arregloCajas[x] = new Cajas();
+            arregloCajas[x].setCliente(JOptionPane.showInputDialog(null,"Digite el nombre del cliente: "));
+            arregloCajas[x].setIngreso(Float.parseFloat(JOptionPane.showInputDialog(null, "Digite el ingreso economico realizado por el cliente: ")));
             
         }
     }

@@ -1,8 +1,15 @@
 package farmagold;
 public class Cajas {
-    String cliente;
-    float ingreso;
+    private String cliente;
+    private float ingreso;
 
+    
+    // construvtor
+    public Cajas() {
+        this.cliente = "";
+        this.ingreso = 0;
+}
+    
     public String getCliente() {
         return cliente;
     }
