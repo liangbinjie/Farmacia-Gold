@@ -4,16 +4,21 @@ public class Medicamentos {
     
     private String nombre;
     private String categoria;
-    private String fecha;
     private int precio;
     private int cantidad;
     
-    public Medicamentos(String nombre, String categoria, String fecha, int precio, int cantidad) {
+    public Medicamentos() {
         this.nombre = "";
         this.categoria = "";
-        this.fecha = "";
         this.precio = 0;
         this.cantidad = 0;
+    }
+    
+    public Medicamentos(String nombre, String categoria, int precio, int cantidad) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.precio = precio;
+        this.cantidad = cantidad;
     }
 
     public String getNombre() {
@@ -30,14 +35,6 @@ public class Medicamentos {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
     }
 
     public int getPrecio() {
