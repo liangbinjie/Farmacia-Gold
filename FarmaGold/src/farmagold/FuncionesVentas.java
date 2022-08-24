@@ -1,5 +1,7 @@
 package farmagold;
 import javax.swing.*;
+import java.time.*;
+
 
 public class FuncionesVentas {
     
@@ -75,4 +77,18 @@ public class FuncionesVentas {
         System.out.println(compra);
         
     }
+    
+    //import java.time.LocalDateTime;
+//import java.time.format.DateTimeFormatter;
+    
+    //DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
+        //System.out.println("yyyy/MMMM/dd HH:mm:ss-> "+dtf3.format(LocalDateTime.now()));
+    
+    //Segun lo que encontre en google creo que algo asi tiene que ser para poder poner la fecha con hora y todo eso
+    //en la factura pero en realidad no me hagan mucho caso porque creo que estoy sumamente mal
+    //Igual lo dejo en comentario por que nunca descubri como hacerlo xd, mañana lo vemos.
+
+    
 }
+    
+
