@@ -77,15 +77,12 @@ public class FuncionesVentas {
     public boolean verificarMedicamento(String medicamento, int cantidad, Medicamentos listaMedicamentos[]){
         boolean verificado = false;
         for(int i=0;i<listaMedicamentos.length;i++){
-            if (medicamento == listaMedicamentos[i].getNombre()&& cantidad<=listaMedicamentos[i].getCantidad()){
+            if (medicamento.equals(listaMedicamentos[i].getNombre()) && cantidad<=listaMedicamentos[i].getCantidad()){
                 listaMedicamentos[i].setCantidad(listaMedicamentos[i].getCantidad()-cantidad);
                 verificado = true;
-    
-                
             }
         }
         return verificado;
-    
 }
     
     //import java.time.LocalDateTime;
@@ -100,5 +97,3 @@ public class FuncionesVentas {
 
     
 }
-    
-
