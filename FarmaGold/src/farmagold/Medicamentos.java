@@ -1,19 +1,12 @@
 package farmagold;
-
 public class Medicamentos {
     
     private String nombre;
     private String categoria;
     private String fecha;
     private int precio;
+
     
-    public Medicamentos(String nombre, String categoria, String fecha, int precio) {
-        this.nombre = "";
-        this.categoria = "";
-        this.fecha = "";
-        this.precio = 0;
-        
-    }
 
     public String getNombre() {
         return nombre;
@@ -45,5 +38,13 @@ public class Medicamentos {
 
     public void setPrecio(int precio) {
         this.precio = precio;
-    }  
+    }
+
+    public Medicamentos(String nombre, String categoria, String fecha, int precio) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.fecha = fecha;
+        this.precio = precio;
+    }
+       
 }
