@@ -86,7 +86,7 @@ public class FuncionesVentas {
     
     //Segun lo que encontre en google creo que algo asi tiene que ser para poder poner la fecha con hora y todo eso
     //en la factura pero en realidad no me hagan mucho caso porque creo que estoy sumamente mal
-    //Igual lo dejo en comentario por que nunca descubri como hacerlo xd, mañana lo vemos
+    //Igual lo dejo en comentario por que nunca descubri como hacerlo xd, mañana lo vemos.
 
     
 }
