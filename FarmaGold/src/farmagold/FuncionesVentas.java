@@ -50,12 +50,8 @@ public class FuncionesVentas {
                 null, botones, null);
         
             if (result == JOptionPane.YES_OPTION){
-                boolean found = false;
-                for (int i=0; i<listaMedicamentos.length; i++) {
-                    if (medicamento.getText() == listaMedicamentos[i].getNombre()) {
-                        found = true;
-                    }
-                }
+                boolean found = verificarMedicamento(medicamento.getText(), Integer.parseInt(cantidad.getText()), listaMedicamentos);
+    
                 
                 if (found==true) {
                     compra += medicamento.getText() + ": " + cantidad.getText() + "\n";
@@ -77,6 +73,20 @@ public class FuncionesVentas {
         System.out.println(compra);
         
     }
+    
+    public boolean verificarMedicamento(String medicamento, int cantidad, Medicamentos listaMedicamentos[]){
+        boolean verificado = false;
+        for(int i=0;i<listaMedicamentos.length;i++){
+            if (medicamento == listaMedicamentos[i].getNombre()&& cantidad<=listaMedicamentos[i].getCantidad()){
+                listaMedicamentos[i].setCantidad(listaMedicamentos[i].getCantidad()-cantidad);
+                verificado = true;
+    
+                
+            }
+        }
+        return verificado;
+    
+}
     
     //import java.time.LocalDateTime;
 //import java.time.format.DateTimeFormatter;

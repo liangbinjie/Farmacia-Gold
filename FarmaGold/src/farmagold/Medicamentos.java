@@ -6,13 +6,14 @@ public class Medicamentos {
     private String categoria;
     private String fecha;
     private int precio;
+    private int cantidad;
     
-    public Medicamentos(String nombre, String categoria, String fecha, int precio) {
+    public Medicamentos(String nombre, String categoria, String fecha, int precio, int cantidad) {
         this.nombre = "";
         this.categoria = "";
         this.fecha = "";
         this.precio = 0;
-        
+        this.cantidad = 0;
     }
 
     public String getNombre() {
@@ -46,4 +47,13 @@ public class Medicamentos {
     public void setPrecio(int precio) {
         this.precio = precio;
     }  
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
 }
