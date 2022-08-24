@@ -1,7 +1,7 @@
 package farmagold;
 import javax.swing.JOptionPane;
 public class CajasFunciones {
-    private Cajas caja[]=new Cajas[5];
+   private Cajas caja[]=new Cajas[5];
    private int opcion;
    private double suma;
    
