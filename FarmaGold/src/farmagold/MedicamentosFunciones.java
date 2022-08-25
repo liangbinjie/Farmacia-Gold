@@ -75,5 +75,16 @@ public class MedicamentosFunciones {
             }
         }
     }
+    
+    public String buscarMedicamento(String medicamento, Medicamentos listaMedicamentos[]) {
+        String nombre = "";
+        for (int i=0; i<listaMedicamentos.length; i++) {
+            if (listaMedicamentos[i].getCodigo().equals(medicamento) || listaMedicamentos[i].getNombre().equals(medicamento)) {
+                nombre = listaMedicamentos[i].getNombre();
+            }
+        }
+        
+        return nombre;
+    }
 }
 

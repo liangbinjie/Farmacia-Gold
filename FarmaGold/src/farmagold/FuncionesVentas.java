@@ -7,13 +7,7 @@ public class FuncionesVentas {
     
     // constructor
     public FuncionesVentas(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[], Medicamentos listaMedicamentos[]){
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, ""));
-        if (opcion == 1) {
-            vender(listaEmpleados, listaClientes, facturas, listaMedicamentos);
-        } else if (opcion == 2) {
-            mostrarFactura(facturas);
-        }
-        
+        vender(listaEmpleados, listaClientes, facturas, listaMedicamentos);
     }
     
 
@@ -59,18 +53,17 @@ public class FuncionesVentas {
         
             if (result == JOptionPane.YES_OPTION){
                 boolean found = verificarMedicamento(medicamento.getText(), Integer.parseInt(cantidad.getText()), listaMedicamentos);
-                montoFinal += monto(medicamento.getText(), Integer.parseInt(cantidad.getText()), listaMedicamentos);
+                
                 
                 if (found==true) {
                     compra += buscarMedicamento(medicamento.getText(), listaMedicamentos) + ": " + cantidad.getText() + "\n";
+                    montoFinal += monto(medicamento.getText(), Integer.parseInt(cantidad.getText()), listaMedicamentos);
                
                     medicamento.setText("");
                     cantidad.setText("");
                 } else {
                     JOptionPane.showMessageDialog(null, "Medicamento no encontrado o cantidad no disponible");
                 }
-
-                
             }
             
             if (result == JOptionPane.NO_OPTION){
@@ -122,6 +115,7 @@ public class FuncionesVentas {
                 indice--;
             } else {
                 indice_agregar = indice + 1;
+                // agregamos los datos al arreglo de objeto
                 facturas[indice_agregar].setIdFactura(indice_agregar);
                 facturas[indice_agregar].setNombreCliente(cliente);
                 facturas[indice_agregar].setClienteID(idCliente);
@@ -130,21 +124,6 @@ public class FuncionesVentas {
                 facturas[indice_agregar].setActive(true);
                 System.out.println("Factura agregada");
             }
-        }
-    }
-    
-    public void mostrarFactura(Ventas facturas[]) {
-        for (int i=1; i<facturas.length; i++) {
-            String s = "";
-            if (facturas[i].isActive() == true){
-                String info ="";
-                info+="No factura: "+facturas[i].getIdFactura()+"\nCliente ID: "+facturas[i].getClienteID()+"\nCliente: "+
-                        facturas[i].getNombreCliente()+"\nCompra: \n"+facturas[i].getCompra()+"\nMonto: "+facturas[i].getMonto();
-                JOptionPane.showMessageDialog(null, info);
-            } else {
-                break;
-            }
-                
         }
     }
     

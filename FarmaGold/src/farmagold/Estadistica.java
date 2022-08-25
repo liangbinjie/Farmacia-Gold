@@ -1,16 +1,27 @@
 package farmagold;
 import javax.swing.*;
 public class Estadistica {
-    private double estadisticas[][]=new double [1][7];
     
-//Dentro del for, agregar montos de cada factura, luego otro for loop para sumar todo. eso == venta diaria   
-    public void CalculoDiario(){
-        for(int x=0;x<estadisticas[1][7];x++){
+    public Estadistica(Ventas facturas[]) {
         
-       }
-    }
-//Sumar cada dia, ej 7 columnas [7], crear variable promedio/7 = promedio de una semana.
-    public void PromedioDiario(){
+        double montoDiario = 0;
+            // arreglo de ventas diarias 
+        double ventasDiaria[] = new double[100];
+        for (int i=0; i<ventasDiaria.length; i++) {
+            ventasDiaria[i] = 0;
+        }
         
+        
+        for (int i=0; i<facturas.length; i++) {
+            if (facturas[i].isActive() == true) {
+                ventasDiaria[i] = facturas[i].getMonto();
+            }
+        }
+        
+        for (int i=0; i<ventasDiaria.length; i++) {
+            montoDiario += ventasDiaria[i];
+        }
+        
+        JOptionPane.showMessageDialog(null, "Se recaudo $" + montoDiario + " el dia de hoy");
     }
 }

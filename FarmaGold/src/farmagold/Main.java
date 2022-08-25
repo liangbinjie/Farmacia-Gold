@@ -15,7 +15,7 @@ public class Main {
         empleado.empleadosEstablecidos(listaEmpleados); // establecer los usuarios por default
 
         
-        Clientes listaClientes[] = new Clientes[5]; // lista Clientes global
+        Clientes listaClientes[] = new Clientes[100]; // lista Clientes global
         listaClientes[0] = new Clientes(1, "Default", "Cliente", "cliente@gmail.com", 1); // cliente por defecto
         for (int i=listaClientes.length-1; i>=0; i--) { // los espacios en null les agregamos campos en blanco
             if (listaClientes[i] == null) {
@@ -24,7 +24,7 @@ public class Main {
         }
         
         
-        Ventas facturas[] = new Ventas[5];
+        Ventas facturas[] = new Ventas[100];
         for (int i=0; i<facturas.length; i++) { // los espacios en null les agregamos campos en blanco
             if (facturas[i] == null) {
                 facturas[i] = new Ventas();
@@ -40,6 +40,9 @@ public class Main {
         }
         listaMedicamentos[0] = new Medicamentos("Aspirina", "SA001", "Salicilato", 1200, 54);
         listaMedicamentos[1] = new Medicamentos("Acetaminofen", "AA001", "Analgesicos", 1500, 65);
+        
+        
+
         Interfaz gui = new Interfaz(listaEmpleados, listaClientes, facturas, listaMedicamentos);
     }
     
