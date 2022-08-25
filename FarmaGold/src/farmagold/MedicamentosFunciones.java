@@ -55,6 +55,7 @@ public class MedicamentosFunciones {
                 // revisar si la casa existe
                 String casa = JOptionPane.showInputDialog(null, "Ingrese el nombre de la casa farmaceutica del medicamento");
                 if (verificarCasa(listaCasas, casa) == true) {
+                    listaMedicamentos[indice_agregar].setCasaFarma(casa);
                     listaMedicamentos[indice_agregar].setNombre(JOptionPane.showInputDialog(null,"Digite el nombre del medicamento: "));
                     listaMedicamentos[indice_agregar].setCodigo(JOptionPane.showInputDialog(null, "Digite el codigo del medicamento: "));
                     listaMedicamentos[indice_agregar].setCategoria(JOptionPane.showInputDialog(null, "Digite la categoria del medicamento"));
@@ -77,7 +78,7 @@ public class MedicamentosFunciones {
         for(int x=0;x<listaMedicamentos.length;x++){
             String s="";
             if (listaMedicamentos[x].getNombre() != "") {
-                s += "Nombre medicamento " + listaMedicamentos[x].getNombre() + "\nCategoria: " + listaMedicamentos[x].getCategoria() + "\nPrecio: " + listaMedicamentos[x].getPrecio()
+                s += "Nombre casa farmcauetica: " + listaMedicamentos[x].getCasaFarma() + "\nNombre medicamento " + listaMedicamentos[x].getNombre() + "\nCategoria: " + listaMedicamentos[x].getCategoria() + "\nPrecio: " + listaMedicamentos[x].getPrecio()
                         + "\nCantidad disponible: " + listaMedicamentos[x].getCantidad();
                 JOptionPane.showMessageDialog(null,s);
             } else {

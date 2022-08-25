@@ -38,8 +38,8 @@ public class Main {
                 listaMedicamentos[i] = new Medicamentos();
             }
         }
-        listaMedicamentos[0] = new Medicamentos("Aspirina", "SA001", "Salicilato", 1200, 54);
-        listaMedicamentos[1] = new Medicamentos("Acetaminofen", "AA001", "Analgesicos", 1500, 65);
+        listaMedicamentos[0] = new Medicamentos("Medicantrix", "Aspirina", "SA001", "Salicilato", 1200, 54);
+        listaMedicamentos[1] = new Medicamentos("Vaccined", "Acetaminofen", "AA001", "Analgesicos", 1500, 65);
         
         
         

@@ -2,6 +2,7 @@ package farmagold;
 
 public class Medicamentos {
     
+    private String casaFarma;
     private String nombre;
     private String codigo;
     private String categoria;
@@ -9,6 +10,7 @@ public class Medicamentos {
     private int cantidad;
     
     public Medicamentos() {
+        this.casaFarma = "";
         this.nombre = "";
         this.codigo = "";
         this.categoria = "";
@@ -16,7 +18,8 @@ public class Medicamentos {
         this.cantidad = 0;
     }
     
-    public Medicamentos(String nombre, String codigo, String categoria, int precio, int cantidad) {
+    public Medicamentos(String casaFarma, String nombre, String codigo, String categoria, int precio, int cantidad) {
+        this.casaFarma = casaFarma;
         this.nombre = nombre;
         this.codigo = codigo;
         this.categoria = categoria;
@@ -24,6 +27,14 @@ public class Medicamentos {
         this.cantidad = cantidad;
     }
 
+    public String getCasaFarma() {
+        return casaFarma;
+    }
+
+    public void setCasaFarma(String casaFarma) {
+        this.casaFarma = casaFarma;
+    }
+    
     public String getNombre() {
         return nombre;
     }
