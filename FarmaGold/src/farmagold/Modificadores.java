@@ -115,6 +115,8 @@ public class Modificadores {
                 } 
             } else if (opcion == 6) {
                 break; 
+            } else {
+                break;
             }
         }
 
@@ -243,6 +245,8 @@ public class Modificadores {
                 }
             } else if (opcion == 6) {
                 break;
+            } else {
+                break;
             }
             
                 
@@ -254,7 +258,7 @@ public class Modificadores {
     
     public void modificarMedicinas(Medicamentos listaMedicamentos[], Casas listaCasas[]){
         while(true){
-             int opcion=Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea modificar?\n (1)Nombre\n(2) Codigo\n(3) Precio\n(4) Categoría\n(5) Cantidad "));
+             int opcion=Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea modificar?\n (1)Nombre\n(2) Codigo\n(3) Precio\n(4) Categoría\n(5) Cantidad\n(6) Casa Farmaceutica"));
             if (opcion == 1){
                 //codigo del medicamento
                 String codigo = JOptionPane.showInputDialog(null, " Ingrese el codigo del medicamento que desea modificar: ");
@@ -388,6 +392,8 @@ public class Modificadores {
                     JOptionPane.showMessageDialog(null, "Codigo del medicamento invalido");
                     break;
                 }
+            } else {
+                break;
             }
             
             
@@ -404,5 +410,5 @@ public class Modificadores {
         
         return verificado;
     }
-        }
+}
         

@@ -14,12 +14,12 @@ public class Interfaz {
         } else if (opcion == 2) {
             BaseDatos dataBase = new BaseDatos(listaEmpleados, listaClientes, listaMedicamentos, listaCasas);
         } else if (opcion == 3) {
-            int op = Integer.parseInt(JOptionPane.showInputDialog(null, "(1) Para cajas\n(2) Para estadisticas"));
+            int op = Integer.parseInt(JOptionPane.showInputDialog(null, "(1) Para cajas\n(2) Para estadisticas\n(3) Salir"));
             if (op == 1) {
                 Cajas cj = new Cajas(facturas);
             } else if (op == 2) {
                 Estadistica st = new Estadistica(facturas);
-            }
+            } 
         } else if (opcion == 4) {
             break;
         }
