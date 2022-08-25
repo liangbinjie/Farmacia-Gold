@@ -60,14 +60,16 @@ public class MedicamentosFunciones {
                     listaMedicamentos[indice_agregar].setCategoria(JOptionPane.showInputDialog(null, "Digite la categoria del medicamento"));
                     listaMedicamentos[indice_agregar].setPrecio(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la cantidad del medicamento: ")));
                     listaMedicamentos[indice_agregar].setPrecio(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio del medicamento: ")));
+                    JOptionPane.showMessageDialog(null, "Se agrego el medicamento: " + listaMedicamentos[indice_agregar].getNombre());
                     break;
                 } else {
                     JOptionPane.showMessageDialog(null, "Casa farmaceutica no registrada");
+                    break;
                 }
                 
             }
         }
-        JOptionPane.showMessageDialog(null, "Se agrego el medicamento: " + listaMedicamentos[indice_agregar].getNombre());
+
     }
 
 
