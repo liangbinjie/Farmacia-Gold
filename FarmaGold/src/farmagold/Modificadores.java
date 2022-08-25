@@ -252,7 +252,7 @@ public class Modificadores {
         
     }  
     
-    public void modificarMedicinas(Medicamentos listaMedicamentos[]){
+    public void modificarMedicinas(Medicamentos listaMedicamentos[], Casas listaCasas[]){
         while(true){
              int opcion=Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea modificar?\n (1)Nombre\n(2) Codigo\n(3) Precio\n(4) Categoría\n(5) Cantidad "));
             if (opcion == 1){
@@ -362,10 +362,47 @@ public class Modificadores {
                 break;
                         
             }
+            } else if (opcion == 6) {
+                //codigo del medicamento
+                String codigo = JOptionPane.showInputDialog(null, " Ingrese el codigo del medicamento que desea modificar: ");
+                boolean encontrado =false;
+                int index = 0;
+                for (int i=0;i<listaMedicamentos.length;i++){
+                    if (listaMedicamentos[i].getCodigo().equals(codigo)){
+                        encontrado = true;
+                        index = i;
+                    }
+                }
+                if (encontrado == true){
+                    //modificamos el nombre
+                    String nueva_casa = JOptionPane.showInputDialog(null, " Ingrese el nombre de la casa farmcaceutica que desea modificar: ");
+                    if (verificarCasa(listaCasas, nueva_casa) == true) {
+                        listaMedicamentos[index].setCasaFarma(nueva_casa);
+                        break;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "La casa no se encuentra registrada");
+                        break;
+                    }
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Codigo del medicamento invalido");
+                    break;
+                }
             }
             
             
         }
+    }
+    
+    public boolean verificarCasa(Casas listaCasas[], String nombre) {
+        boolean verificado = false;
+        for (int i=0; i<listaCasas.length; i++) {
+            if (listaCasas[i].getNombre().equals(nombre)) {
+                verificado = true;
+            }
+        }
+        
+        return verificado;
     }
         }
         
