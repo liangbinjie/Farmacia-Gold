@@ -12,7 +12,7 @@ public class Estadistica {
         }
         
         
-        int clientes = 0;
+        int clientes = -1;
         for (int i=0; i<facturas.length; i++) {
             if (facturas[i].isActive() == true) {
                 ventasDiaria[i] = facturas[i].getMonto();

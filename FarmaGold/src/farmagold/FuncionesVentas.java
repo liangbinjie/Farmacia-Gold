@@ -126,9 +126,10 @@ public class FuncionesVentas {
                 facturas[indice_agregar].setCompra(compra);
                 facturas[indice_agregar].setMonto(monto);
                 facturas[indice_agregar].setActive(true);
-                System.out.println("Factura agregada");
+                
             }
         }
+        System.out.println("Factura agregada");
         return indice_agregar;
     }
     
