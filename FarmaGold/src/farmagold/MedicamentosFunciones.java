@@ -30,7 +30,8 @@ public class MedicamentosFunciones {
                  }
                  
                  case 3 -> {
-                     // modificar
+                     Modificadores modifiers = new Modificadores();
+                     modifiers.modificarMedicinas(listaMedicamentos);
                  }
                  case 4 -> {
                     running = false;
