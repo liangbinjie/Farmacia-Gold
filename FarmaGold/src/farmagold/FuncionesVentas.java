@@ -7,7 +7,13 @@ public class FuncionesVentas {
     
     // constructor
     public FuncionesVentas(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[], Medicamentos listaMedicamentos[]){
-        vender(listaEmpleados, listaClientes, facturas, listaMedicamentos);
+        int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, ""));
+        if (opcion == 1) {
+            vender(listaEmpleados, listaClientes, facturas, listaMedicamentos);
+        } else if (opcion == 2) {
+            mostrarFactura(facturas);
+        }
+        
     }
     
 
@@ -21,19 +27,21 @@ public class FuncionesVentas {
         // preguntamos que quiere comprar
         // buscamos en la base de datos si esta disponible
         FuncionEmpleados empleado = new FuncionEmpleados();
-        if (empleado.iniciarSesion(listaEmpleados, facturas)==true){         // iniciamos sesion
-            System.out.println(facturas[0].getUsuario());
-            FuncionesClientes cliente = new FuncionesClientes();        // preguntamos el id del cliente, busca el nombre del cliente
-            if(cliente.infoCliente(listaClientes) == true) {
+        if (empleado.iniciarSesion(listaEmpleados)==true){         // iniciamos sesion
+
+            FuncionesClientes cliente = new FuncionesClientes();   
+            long idCliente = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion del cliente"));// preguntamos el id del cliente, busca el nombre del cliente
+            if(cliente.infoCliente(idCliente, listaClientes) == true) {
                 // obtenemos la informacion del cliente
-                ventaMedicamentos(listaMedicamentos);
+                ventaMedicamentos(idCliente, listaMedicamentos, facturas, listaClientes);
             }
         }
     }
     
     
-    public void ventaMedicamentos(Medicamentos listaMedicamentos[]) {
+    public void ventaMedicamentos(long idCliente, Medicamentos listaMedicamentos[], Ventas facturas[], Clientes listaClientes[]) {
         String compra = "";
+        double montoFinal = 0;
         
         String[] botones = {"Agregar", "Finalizar"};
         JPanel panelCompra = new JPanel();
@@ -51,7 +59,7 @@ public class FuncionesVentas {
         
             if (result == JOptionPane.YES_OPTION){
                 boolean found = verificarMedicamento(medicamento.getText(), Integer.parseInt(cantidad.getText()), listaMedicamentos);
-    
+                montoFinal += monto(medicamento.getText(), Integer.parseInt(cantidad.getText()), listaMedicamentos);
                 
                 if (found==true) {
                     compra += medicamento.getText() + ": " + cantidad.getText() + "\n";
@@ -59,7 +67,7 @@ public class FuncionesVentas {
                     medicamento.setText("");
                     cantidad.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Medicamentos no encontrados");
+                    JOptionPane.showMessageDialog(null, "Medicamento no encontrado o cantidad no disponible");
                 }
 
                 
@@ -69,15 +77,23 @@ public class FuncionesVentas {
                 break;
             }
         }
-        JOptionPane.showMessageDialog(null, compra);
-        System.out.println(compra);
+        // Agregar el objeto al arreglo de facturas
+        String cliente = "";
+        for (int i=0; i<listaClientes.length; i++) {
+            if (listaClientes[i].getIdentificacion() == idCliente) {
+                cliente = listaClientes[i].getNombre() + " " + listaClientes[i].getApellidos();
+            }
+        }
+        agregarFactura(cliente, idCliente, montoFinal, facturas);
+        JOptionPane.showMessageDialog(null, compra + "\nMonto: " + montoFinal);
+        System.out.println(compra + "\nMonto: " + montoFinal);
         
     }
     
     public boolean verificarMedicamento(String medicamento, int cantidad, Medicamentos listaMedicamentos[]){
         boolean verificado = false;
         for(int i=0;i<listaMedicamentos.length;i++){
-            if (medicamento.equals(listaMedicamentos[i].getNombre()) && cantidad<=listaMedicamentos[i].getCantidad()){
+            if (medicamento.equals(listaMedicamentos[i].getNombre()) || medicamento.equals(listaMedicamentos[i].getCodigo()) && cantidad<=listaMedicamentos[i].getCantidad()){
                 listaMedicamentos[i].setCantidad(listaMedicamentos[i].getCantidad()-cantidad);
                 verificado = true;
             }
@@ -85,15 +101,49 @@ public class FuncionesVentas {
         return verificado;
 }
     
-    //import java.time.LocalDateTime;
-//import java.time.format.DateTimeFormatter;
+    public double monto(String medicamento, int cantidad, Medicamentos listaMedicamentos[]) {
+        double monto = 0 * cantidad;
+        for(int i=0; i<listaMedicamentos.length; i++) {
+            if (listaMedicamentos[i].getNombre().equals(medicamento) || listaMedicamentos[i].getCodigo().equals(medicamento)) {
+                monto = cantidad * listaMedicamentos[i].getPrecio();
+            }
+        }
+        
+        return monto;
+    }
     
-    //DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
-        //System.out.println("yyyy/MMMM/dd HH:mm:ss-> "+dtf3.format(LocalDateTime.now()));
+    public void agregarFactura(String cliente, long idCliente, double monto, Ventas facturas[]) {
+        int indice = facturas.length - 1;
+        int indice_agregar = 0;
+        
+        for (int i=indice; i>=0; i--) {
+            if (facturas[i].isActive() == false) {
+                facturas[i] = new Ventas();
+                indice--;
+            } else {
+                indice_agregar = indice + 1;
+                facturas[indice_agregar].setIdFactura(indice_agregar);
+                facturas[indice_agregar].setNombreCliente(cliente);
+                facturas[indice_agregar].setClienteID(idCliente);
+                facturas[indice_agregar].setMonto(monto);
+                facturas[indice_agregar].setActive(true);
+                System.out.println("Factura agregada");
+            }
+        }
+    }
     
-    //Segun lo que encontre en google creo que algo asi tiene que ser para poder poner la fecha con hora y todo eso
-    //en la factura pero en realidad no me hagan mucho caso porque creo que estoy sumamente mal
-    //Igual lo dejo en comentario por que nunca descubri como hacerlo xd, mañana lo vemos.
-
+    public void mostrarFactura(Ventas facturas[]) {
+        for (int i=0; i<facturas.length; i++) {
+            String s = "";
+            if (facturas[i].isActive() == true) {
+                s += facturas[i].getIdFactura();
+                JOptionPane.showMessageDialog(null, "No Factura: " + s);
+            } else {
+                break;
+            }
+                
+        }
+    }
+    
     
 }
