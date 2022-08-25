@@ -62,7 +62,7 @@ public class FuncionesVentas {
                 montoFinal += monto(medicamento.getText(), Integer.parseInt(cantidad.getText()), listaMedicamentos);
                 
                 if (found==true) {
-                    compra += medicamento.getText() + ": " + cantidad.getText() + "\n";
+                    compra += buscarMedicamento(medicamento.getText(), listaMedicamentos) + ": " + cantidad.getText() + "\n";
                
                     medicamento.setText("");
                     cantidad.setText("");
@@ -84,7 +84,7 @@ public class FuncionesVentas {
                 cliente = listaClientes[i].getNombre() + " " + listaClientes[i].getApellidos();
             }
         }
-        agregarFactura(cliente, idCliente, montoFinal, facturas);
+        agregarFactura(cliente, idCliente, montoFinal, facturas, compra);
         JOptionPane.showMessageDialog(null, compra + "\nMonto: " + montoFinal);
         System.out.println(compra + "\nMonto: " + montoFinal);
         
@@ -112,7 +112,7 @@ public class FuncionesVentas {
         return monto;
     }
     
-    public void agregarFactura(String cliente, long idCliente, double monto, Ventas facturas[]) {
+    public void agregarFactura(String cliente, long idCliente, double monto, Ventas facturas[], String compra) {
         int indice = facturas.length - 1;
         int indice_agregar = 0;
         
@@ -125,6 +125,7 @@ public class FuncionesVentas {
                 facturas[indice_agregar].setIdFactura(indice_agregar);
                 facturas[indice_agregar].setNombreCliente(cliente);
                 facturas[indice_agregar].setClienteID(idCliente);
+                facturas[indice_agregar].setCompra(compra);
                 facturas[indice_agregar].setMonto(monto);
                 facturas[indice_agregar].setActive(true);
                 System.out.println("Factura agregada");
@@ -133,11 +134,13 @@ public class FuncionesVentas {
     }
     
     public void mostrarFactura(Ventas facturas[]) {
-        for (int i=0; i<facturas.length; i++) {
+        for (int i=1; i<facturas.length; i++) {
             String s = "";
-            if (facturas[i].isActive() == true) {
-                s += facturas[i].getIdFactura();
-                JOptionPane.showMessageDialog(null, "No Factura: " + s);
+            if (facturas[i].isActive() == true){
+                String info ="";
+                info+="No factura: "+facturas[i].getIdFactura()+"\nCliente ID: "+facturas[i].getClienteID()+"\nCliente: "+
+                        facturas[i].getNombreCliente()+"\nCompra: \n"+facturas[i].getCompra()+"\nMonto: "+facturas[i].getMonto();
+                JOptionPane.showMessageDialog(null, info);
             } else {
                 break;
             }
@@ -145,5 +148,14 @@ public class FuncionesVentas {
         }
     }
     
-    
+    public String buscarMedicamento(String medicamento, Medicamentos listaMedicamentos[]) {
+        String nombre = "";
+        for (int i=0; i<listaMedicamentos.length; i++) {
+            if (listaMedicamentos[i].getCodigo().equals(medicamento) || listaMedicamentos[i].getNombre().equals(medicamento)) {
+                nombre = listaMedicamentos[i].getNombre();
+            }
+        }
+        
+        return nombre;
+    }
 }
