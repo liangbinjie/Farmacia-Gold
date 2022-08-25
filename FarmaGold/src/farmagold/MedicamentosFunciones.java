@@ -3,12 +3,12 @@ import javax.swing.JOptionPane;
 public class MedicamentosFunciones {
     // constructor
     
-    public MedicamentosFunciones(Medicamentos listaMedicamentos[]) {
-        mostrarMenu(listaMedicamentos);
+    public MedicamentosFunciones(Medicamentos listaMedicamentos[], Casas listaCasas[]) {
+        mostrarMenu(listaMedicamentos, listaCasas);
     }
 
     
-    public void mostrarMenu(Medicamentos listaMedicamentos[]){
+    public void mostrarMenu(Medicamentos listaMedicamentos[], Casas listaCasas[]){
         boolean running = true;
           while(running){
              int opcion=Integer.parseInt(JOptionPane.showInputDialog(null, """
@@ -23,7 +23,7 @@ public class MedicamentosFunciones {
 
              switch(opcion){
                  case 1 -> {
-                    agregarMedicamento(listaMedicamentos);
+                    agregarMedicamento(listaMedicamentos, listaCasas);
                  }
                  case 2 -> {
                     mostrarMedicamentos(listaMedicamentos);
@@ -44,7 +44,7 @@ public class MedicamentosFunciones {
           }
        }
 
-    public void agregarMedicamento(Medicamentos listaMedicamentos[]) {
+    public void agregarMedicamento(Medicamentos listaMedicamentos[], Casas listaCasas[]) {
         int indice = listaMedicamentos.length - 1;
         int indice_agregar = 0;
         for(int x=indice;x>=0;x--){
@@ -52,12 +52,19 @@ public class MedicamentosFunciones {
                 indice--;
             } else {
                 indice_agregar = indice + 1;
-                listaMedicamentos[indice_agregar].setNombre(JOptionPane.showInputDialog(null,"Digite el nombre del medicamento: "));
-                listaMedicamentos[indice_agregar].setCodigo(JOptionPane.showInputDialog(null, "Digite el codigo del medicamento: "));
-                listaMedicamentos[indice_agregar].setCategoria(JOptionPane.showInputDialog(null, "Digite la categoria del medicamento"));
-                listaMedicamentos[indice_agregar].setPrecio(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la cantidad del medicamento: ")));
-                listaMedicamentos[indice_agregar].setPrecio(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio del medicamento: ")));
-                break;
+                // revisar si la casa existe
+                String casa = JOptionPane.showInputDialog(null, "Ingrese el nombre de la casa farmaceutica del medicamento");
+                if (verificarCasa(listaCasas, casa) == true) {
+                    listaMedicamentos[indice_agregar].setNombre(JOptionPane.showInputDialog(null,"Digite el nombre del medicamento: "));
+                    listaMedicamentos[indice_agregar].setCodigo(JOptionPane.showInputDialog(null, "Digite el codigo del medicamento: "));
+                    listaMedicamentos[indice_agregar].setCategoria(JOptionPane.showInputDialog(null, "Digite la categoria del medicamento"));
+                    listaMedicamentos[indice_agregar].setPrecio(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la cantidad del medicamento: ")));
+                    listaMedicamentos[indice_agregar].setPrecio(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio del medicamento: ")));
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Casa farmaceutica no registrada");
+                }
+                
             }
         }
         JOptionPane.showMessageDialog(null, "Se agrego el medicamento: " + listaMedicamentos[indice_agregar].getNombre());
@@ -86,6 +93,17 @@ public class MedicamentosFunciones {
         }
         
         return nombre;
+    }
+    
+    public boolean verificarCasa(Casas listaCasas[], String nombre) {
+        boolean verificado = false;
+        for (int i=0; i<listaCasas.length; i++) {
+            if (listaCasas[i].getNombre().equals(nombre)) {
+                verificado = true;
+            }
+        }
+        
+        return verificado;
     }
 }
 
