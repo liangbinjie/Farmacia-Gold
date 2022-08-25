@@ -12,11 +12,12 @@ public class MedicamentosFunciones {
         boolean running = true;
           while(running){
              int opcion=Integer.parseInt(JOptionPane.showInputDialog(null, """
-                                                                       **CATALOGO DE MEDICAMENTOS**
+                                                                       ***CATALOGO DE MEDICAMENTOS***
 
-                                                                       1. Llenar Informacion
-                                                                       2. Mostrar Informacion
-                                                                       3. Salir
+                                                                       1. Agregar medicamento
+                                                                       2. Mostrar Medicamentos
+                                                                       3. Modificar informacion
+                                                                       4. Salir
 
                                                                        Digite su opcion: """));
 
@@ -27,7 +28,11 @@ public class MedicamentosFunciones {
                  case 2 -> {
                     mostrarMedicamentos(listaMedicamentos);
                  }
+                 
                  case 3 -> {
+                     // modificar
+                 }
+                 case 4 -> {
                     running = false;
                  }
                  default -> {
@@ -47,7 +52,9 @@ public class MedicamentosFunciones {
             } else {
                 indice_agregar = indice + 1;
                 listaMedicamentos[indice_agregar].setNombre(JOptionPane.showInputDialog(null,"Digite el nombre del medicamento: "));
+                listaMedicamentos[indice_agregar].setCodigo(JOptionPane.showInputDialog(null, "Digite el codigo del medicamento: "));
                 listaMedicamentos[indice_agregar].setCategoria(JOptionPane.showInputDialog(null, "Digite la categoria del medicamento"));
+                listaMedicamentos[indice_agregar].setPrecio(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la cantidad del medicamento: ")));
                 listaMedicamentos[indice_agregar].setPrecio(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio del medicamento: ")));
                 break;
             }
@@ -69,3 +76,4 @@ public class MedicamentosFunciones {
         }
     }
 }
+
