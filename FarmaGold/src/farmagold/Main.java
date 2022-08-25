@@ -25,12 +25,12 @@ public class Main {
         
         
         Ventas facturas[] = new Ventas[5];
-        facturas[0] = new Ventas(1, "benji", 115600413, "Default", "Nada", 0);
-        for (int i=facturas.length-1; i>=0; i--) { // los espacios en null les agregamos campos en blanco
+        for (int i=0; i<facturas.length; i++) { // los espacios en null les agregamos campos en blanco
             if (facturas[i] == null) {
                 facturas[i] = new Ventas();
             }
         }
+        facturas[0] = new Ventas(0, 1, "Default", "", 0);
         
         Medicamentos listaMedicamentos[] = new Medicamentos[100];
         for (int i=0; i<listaMedicamentos.length; i++) {
@@ -38,8 +38,8 @@ public class Main {
                 listaMedicamentos[i] = new Medicamentos();
             }
         }
-        listaMedicamentos[0] = new Medicamentos("Aspirina", "Salicilato", 1200, 54);
-        listaMedicamentos[1] = new Medicamentos("Acetaminofen", "Analgesicos", 1500, 65);
+        listaMedicamentos[0] = new Medicamentos("Aspirina", "SA001", "Salicilato", 1200, 54);
+        listaMedicamentos[1] = new Medicamentos("Acetaminofen", "AA001", "Analgesicos", 1500, 65);
         Interfaz gui = new Interfaz(listaEmpleados, listaClientes, facturas, listaMedicamentos);
     }
     
