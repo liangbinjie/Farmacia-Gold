@@ -12,11 +12,18 @@ public class Estadistica {
         }
         
         
+        int clientes = 0;
         for (int i=0; i<facturas.length; i++) {
             if (facturas[i].isActive() == true) {
                 ventasDiaria[i] = facturas[i].getMonto();
+                
+            }
+            
+            if (facturas[i].getClienteID() != 0) {
+                clientes ++;
             }
         }
+        JOptionPane.showMessageDialog(null, "Se atendieron un total de " + clientes + " clientes");
         
         for (int i=0; i<ventasDiaria.length; i++) {
             montoDiario += ventasDiaria[i];
