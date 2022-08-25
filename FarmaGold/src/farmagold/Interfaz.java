@@ -4,7 +4,7 @@ import javax.swing.*;
 public class Interfaz {
 
     public String opciones = "*********Digite la opcion que requiere realizar********* \n(1) Vender\n(2) Base de datos\n(3) Cajas y Estadisticas\n(4) Salir";
-    public Interfaz(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[], Medicamentos listaMedicamentos[]) {
+    public Interfaz(Empleados listaEmpleados[], Clientes listaClientes[], Ventas facturas[], Medicamentos listaMedicamentos[], Casas listaCasas[]) {
     
         
     while (true) {

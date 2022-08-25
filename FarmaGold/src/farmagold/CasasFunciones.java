@@ -37,12 +37,6 @@ public class CasasFunciones {
       }
    }
       
-      
-public void predefinirCasas(){
-        casa[0]=new Casas("Medicantrix","Mexico",32);
-        casa[1]=new Casas("Vaccined","Inglaterra",16);
-        
-    }
     
     public void llenarArreglo(){
         int x;

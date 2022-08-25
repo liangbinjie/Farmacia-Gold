@@ -42,8 +42,17 @@ public class Main {
         listaMedicamentos[1] = new Medicamentos("Acetaminofen", "AA001", "Analgesicos", 1500, 65);
         
         
+        
+        Casas listaCasas[] = new Casas[100];
+        
+        for (int i=0; i<listaCasas.length; i++) {
+            listaCasas[i] = new Casas();
+        }
+        
+        listaCasas[0]=new Casas("Medicantrix","Mexico");
+        listaCasas[1]=new Casas("Vaccined","Inglaterra");
 
-        Interfaz gui = new Interfaz(listaEmpleados, listaClientes, facturas, listaMedicamentos);
+        Interfaz gui = new Interfaz(listaEmpleados, listaClientes, facturas, listaMedicamentos, listaCasas);
     }
     
 }
