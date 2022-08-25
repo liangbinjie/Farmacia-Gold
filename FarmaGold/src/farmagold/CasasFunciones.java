@@ -2,14 +2,15 @@ package farmagold;
 import javax.swing.JOptionPane;
 public class CasasFunciones {
     
-   private Casas casa[]=new Casas[5];
-   private int opcion;
+    // constructor
+    public CasasFunciones(Casas listaCasas[]) {
+        mostrarMenu(listaCasas);
+    }
    
-   
-   public void mostrarMenu(){
-        CasasFunciones cf=new CasasFunciones(); 
-      while(opcion!=3){
-         opcion=Integer.parseInt(JOptionPane.showInputDialog(null, """
+   public void mostrarMenu(Casas listaCasas[]){
+      while(true){
+
+         int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, """
                                                                    ***CATALOGO DE CASAS FABRICANTES***
                                                                    
                                                                    1. Llenar Informacion
@@ -20,14 +21,15 @@ public class CasasFunciones {
                          
          switch(opcion){
              case 1 -> {
-                cf.predefinirCasas();
-                cf.llenarArreglo();
+                 // agregar
+                 agregarCasa(listaCasas);
              }
              case 2 -> {
-                cf.mostrarArreglo();
+                 // mostrar
+                 mostrarCasas(listaCasas);
              }
              case 3 -> {
-                System.exit(0);
+                 break;
              }
              default -> {
                 JOptionPane.showMessageDialog(null,
@@ -36,27 +38,34 @@ public class CasasFunciones {
          }
       }
    }
+   
+   
+   // funciones
+   public void agregarCasa(Casas listaCasas[]) {
+       int indice = listaCasas.length - 1;
+       int indice_agregar = 0;
+       
+       for (int i = indice; i>=0; i--) {
+           if (listaCasas[i].isActive() == false) {
+               indice--;
+           } else {
+                indice_agregar = indice + 1;
+                listaCasas[indice_agregar].setNombre(JOptionPane.showInputDialog(null, "Digite el nombre de la casa Farmaceutica a agregar"));
+                listaCasas[indice_agregar].setPaisOrigen(JOptionPane.showInputDialog(null, "Digite el pais de origen de la casa farmaceutica"));
+                listaCasas[indice_agregar].setActive(true);
+           }
+       }
+   }
+   
+   public void mostrarCasas(Casas listaCasas[]) {
+       for (int i=0; i<listaCasas.length; i++) {
+           String s = "";
+           
+           if (listaCasas[i].isActive() == true ) {
+               s += "Nombre de la casa farmaceutica: " + listaCasas[i].getNombre() + "\nPais de origen: " + listaCasas[i].getPaisOrigen();
+           }
+       }
+   }
       
     
-    public void llenarArreglo(){
-        int x;
-        for(x=2;x<5;x++){
-            Casas cf=new Casas();
-            
-            cf.setNombre(JOptionPane.showInputDialog(null,"Digite el nombre de la casa fabricante: "));
-            cf.setPaisOrigen(JOptionPane.showInputDialog(null, "Digite el pais de origen de la casa fabricante: "));
-            cf.setEdadAntiguedad(Long.parseLong(JOptionPane.showInputDialog(null, "Digite la edad de antiguedad de la casa fabricante: ")));
-            casa[x]=cf;
-            
-        }
-    }
-    public void mostrarArreglo(){
-        int x;
-        String s="";
-        for(x=0;x<5;x++){
-            s=s+casa[x].getNombre()+" "+casa[x].getPaisOrigen()+" "+casa[x].getEdadAntiguedad()+"\n";
-            
-        }
-        JOptionPane.showMessageDialog(null,"Los datos de las casas fabricantes son: \n"+s);
-    }
 }

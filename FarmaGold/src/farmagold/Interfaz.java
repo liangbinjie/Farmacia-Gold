@@ -12,7 +12,7 @@ public class Interfaz {
         if (opcion == 1) {
             FuncionesVentas ventas = new FuncionesVentas(listaEmpleados, listaClientes, facturas, listaMedicamentos);
         } else if (opcion == 2) {
-            BaseDatos dataBase = new BaseDatos(listaEmpleados, listaClientes, listaMedicamentos);
+            BaseDatos dataBase = new BaseDatos(listaEmpleados, listaClientes, listaMedicamentos, listaCasas);
         } else if (opcion == 3) {
             int op = Integer.parseInt(JOptionPane.showInputDialog(null, "(1) Para cajas\n(2) Para estadisticas"));
             if (op == 1) {
