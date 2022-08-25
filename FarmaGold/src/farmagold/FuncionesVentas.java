@@ -77,8 +77,12 @@ public class FuncionesVentas {
                 cliente = listaClientes[i].getNombre() + " " + listaClientes[i].getApellidos();
             }
         }
-        agregarFactura(cliente, idCliente, montoFinal, facturas, compra);
-        JOptionPane.showMessageDialog(null, compra + "\nMonto: " + montoFinal);
+        int id_factura = agregarFactura(cliente, idCliente, montoFinal, facturas, compra);
+        String invoice = "No Factura: " + id_factura +"\n--------------------------------------" 
+                +"\nCliente: " + cliente + "\nID Cliente: " + idCliente + "\n--------------------------------------"+
+                "\nCompra:\n" + compra+"--------------------------------------" +
+                "\nMonto: " + montoFinal;
+        JOptionPane.showMessageDialog(null, invoice);
         System.out.println(compra + "\nMonto: " + montoFinal);
         
     }
@@ -105,7 +109,7 @@ public class FuncionesVentas {
         return monto;
     }
     
-    public void agregarFactura(String cliente, long idCliente, double monto, Ventas facturas[], String compra) {
+    public int agregarFactura(String cliente, long idCliente, double monto, Ventas facturas[], String compra) {
         int indice = facturas.length - 1;
         int indice_agregar = 0;
         
@@ -125,6 +129,7 @@ public class FuncionesVentas {
                 System.out.println("Factura agregada");
             }
         }
+        return indice_agregar;
     }
     
     public String buscarMedicamento(String medicamento, Medicamentos listaMedicamentos[]) {
