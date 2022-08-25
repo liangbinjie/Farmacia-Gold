@@ -4,3 +4,7 @@
 /FarmaGold/.DS_Store
 /FarmaGold/src/.DS_Store
 /FarmaGold/nbproject/
+build-impl.xml
+genfiles.properties
+project.properties
+project.xml
