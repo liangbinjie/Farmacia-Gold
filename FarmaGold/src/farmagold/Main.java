@@ -1,9 +1,10 @@
 package farmagold;
-
+import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
+        JOptionPane.showMessageDialog(null, "Bienvenido al sistema de ventas y gestion de FarmaGold");
         Empleados listaEmpleados[] = new Empleados[7]; // lista Empleados global
                 // llenar los espacios en blanco
         for (int i=0; i<listaEmpleados.length; i++) {
