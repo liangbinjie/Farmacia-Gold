@@ -283,6 +283,7 @@ public class Modificadores {
                 for (int i=0; i<listaMedicamentos.length;i++){
                     if (listaMedicamentos[i].getCodigo().equals(codigo)){
                         index = i;
+                        encontrado = true;
                     }
                 }
                 if (encontrado == true){
@@ -326,6 +327,7 @@ public class Modificadores {
                 for (int i=0; i<listaMedicamentos.length;i++){
                     if (listaMedicamentos[i].getCodigo().equals(codigo)){
                         index = i;
+                        encontrado = true;
                     }
                 }
                 if (encontrado == true){
@@ -347,6 +349,7 @@ public class Modificadores {
                 for (int i=0; i<listaMedicamentos.length;i++){
                     if (listaMedicamentos[i].getCodigo().equals(codigo)){
                         index = i;
+                        encontrado = true;
                     }
                 }
             if (encontrado == true){
