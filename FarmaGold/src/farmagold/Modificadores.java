@@ -247,6 +247,218 @@ public class Modificadores {
             
                 
             }
+    
+
+        
+    }  
+    
+    public void modificarMedicinas(Medicamentos listaMedicamentos[]){
+        while(true){
+             int opcion=Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea modificar?\n (1)Nombre\n(2) Codigo\n(3) Precio\n(4) Categoría\n(5) Cantidad "));
+            if (opcion == 1){
+                //codigo del medicamento
+                String codigo = JOptionPane.showInputDialog(null, " Ingrese el codigo del medicamento que desea modificar: ");
+                boolean encontrado =false;
+                int index = 0;
+                for (int i=0;i<listaMedicamentos.length;i++){
+                    if (listaMedicamentos[i].getCodigo()== codigo){
+                        encontrado = true;
+                        index = i;
+                    }
+                }
+                if (encontrado == true){
+                    //modificamos el nombre
+                    String nuevo_nombre = JOptionPane.showInputDialog(null, " Ingrese el nuevo nombre del medicamento que desea modificar: ");
+                    listaMedicamentos[index].setNombre(nuevo_nombre);
+                    break;
+                }else{
+                    JOptionPane.showMessageDialog(null, "Codigo del medicamento invalido");
+                    break;
+                }
+            }else if (opcion == 2){
+                //codigo del medicamento
+                String codigo = JOptionPane.showInputDialog(null, "Ingrese el codigo del medicamento que desea modificar: ");
+                boolean encontrado = false;
+                int index = 0;
+                for (int i=0; i<listaMedicamentos.length;i++){
+                    if (listaMedicamentos[i].getCodigo() == codigo){
+                        index = i;
+                    }
+                }
+                if (encontrado == true){
+                    //Modificamos el codigo del medicamento
+                    String nuevo_codigo = JOptionPane.showInputDialog(null, " Ingrese el codigo nuevo para el medicamento que desea modificar");
+                    listaMedicamentos[index].setCodigo(nuevo_codigo);
+                    break;
+                }else{
+                    JOptionPane.showMessageDialog(null,"Codigo del medicamento invalido");
+                    break;
+                }
+                        
+                
+            }else if(opcion == 3){
+                //codigo del medicamento
+                String codigo = JOptionPane.showInputDialog(null, "Ingrese el codigo del medicamento que desea modificar: ");
+                boolean encontrado = false;
+                int index = 0;
+                for (int i=0; i<listaMedicamentos.length;i++){
+                    if (listaMedicamentos[i].getCodigo() == codigo){
+                        index =i;
+                    }
+                }
+                if (encontrado ==  true){
+                    //Modificamos el precio del medicamento
+                    int nuevo_precio =Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el nuevo precio del medicamento que desea modificar: "));
+                    listaMedicamentos[index].setPrecio(nuevo_precio);
+                    break;
+                }else{
+                    JOptionPane.showMessageDialog(null, "Codigo del medicamento invalido");
+                    break;
+                }
+                
+                
+            }else if(opcion == 4){
+                //codigo del medicamento
+                String codigo = JOptionPane.showInputDialog(null, "Ingrese el codigo para el  medicamento que desea modificar: ");
+                boolean encontrado = false;
+                int index = 0;
+                for (int i=0; i<listaMedicamentos.length;i++){
+                    if (listaMedicamentos[i].getCodigo() == codigo){
+                        index = i;
+                    }
+                }
+                if (encontrado == true){
+                    //Modificamos la categoria del medicamento 
+                    String nueva_categoria = JOptionPane.showInputDialog(null, " Ingrese la categoría para el medicamento que desea modificar: ");
+                    listaMedicamentos[index].setCategoria(nueva_categoria);
+                    break;
+                }else{
+                    JOptionPane.showMessageDialog(null, " Codigo del medicamento no valido");
+                    
+                    break;
+                }
+            }else if(opcion == 5){
+                //Codigo del medicamento
+                //codigo del medicamento
+                String codigo = JOptionPane.showInputDialog(null, "Ingrese el codigo para el  medicamento que desea modificar: ");
+                boolean encontrado = false;
+                int index = 0;
+                for (int i=0; i<listaMedicamentos.length;i++){
+                    if (listaMedicamentos[i].getCodigo() == codigo){
+                        index = i;
+                    }
+                }
+            if (encontrado == true){
+                //modificamos la cantidad del medicamento
+                int nueva_cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, " Ingrese la nueva cantidad para el medicamento que desea modificar"));
+                listaMedicamentos[index].setCantidad(nueva_cantidad);
+                break;
+            }else{
+                JOptionPane.showMessageDialog(null, "Codigo del medicamento no valido");
+                break;
+                        
+            }
+            }
+            
+            
+        }
+    }
         }
         
-    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
