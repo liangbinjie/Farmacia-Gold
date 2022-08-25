@@ -5,7 +5,7 @@ public class Estadistica {
     
 //Dentro del for, agregar montos de cada factura, luego otro for loop para sumar todo. eso == venta diaria   
     public void CalculoDiario(){
-        for(int x=0;x<.getMonto();x++){
+        for(int x=0;x<estadisticas[1][7];x++){
         
        }
     }
