@@ -35,8 +35,8 @@ public class Cajas {
         if (found == true) {
             String info ="";
             info+="No factura: "+facturas[found_index].getIdFactura()+ "\n--------------------------------------"
-                    +"\nCliente ID: "+facturas[found_index].getClienteID()+"\nCliente: "+ facturas[found_index].getNombreCliente()+"\\n--------------------------------------"
-                    +"\nCompra: \n"+facturas[found_index].getCompra()+"\\n--------------------------------------"
+                    +"\nCliente ID: "+facturas[found_index].getClienteID()+"\nCliente: "+ facturas[found_index].getNombreCliente()+"\n--------------------------------------"
+                    +"\nCompra: \n"+facturas[found_index].getCompra()+"--------------------------------------"
                     +"\nMonto: "+facturas[found_index].getMonto();
             JOptionPane.showMessageDialog(null, info);
         } else {
