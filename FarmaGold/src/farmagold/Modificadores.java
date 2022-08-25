@@ -127,10 +127,10 @@ public class Modificadores {
     
     public void modificarClientes(Clientes listaClientes[]) {
         while(true){
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea modificar?(1) nIdentificación\n(2) Nombre\n(3) Email\n(4) Telefono\n(5) Estatus"));
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea modificar?\n(1) Identificación\n(2) Nombre\n(3) Email\n(4) Telefono\n(5) Estatus"));
             if (opcion == 1) {
                 //Identificacion
-                long identifiacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificación que desea modificar: "));
+                long identifiacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificación actual del cliente que desea modificar: "));
                 boolean encontrado = false;
                 int index = 0;
                 for (int i=0; i<listaClientes.length; i++) {
@@ -141,7 +141,7 @@ public class Modificadores {
                 }
                 if (encontrado == true){
                     //modificamos
-                    long nueva_identificacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la identificacion del cliente a modificar: "));
+                    long nueva_identificacion = Long.parseLong(JOptionPane.showInputDialog(null, "Digite la nueva identificacion del cliente a modificar: "));
                     listaClientes[index].setIdentificacion(nueva_identificacion);
                     break;
                 }else {
@@ -164,9 +164,9 @@ public class Modificadores {
                 
                 if(encontrado == true){
                     //modificamos el nombre y el apellido 
-                    String nombre = JOptionPane.showInputDialog(null, "Digite el nombre del cliente a modificar: ");
+                    String nombre = JOptionPane.showInputDialog(null, "Digite el nombre nuevo del cliente a modificar: ");
                     listaClientes[index].setNombre(nombre);
-                    String apellido = JOptionPane.showInputDialog(null, "Digite los apellidos del cliente a modificar: ");
+                    String apellido = JOptionPane.showInputDialog(null, "Digite los apellidos nuevo del cliente a modificar: ");
                     listaClientes[index].setApellidos(apellido);
                     break;
                 }else{
@@ -189,7 +189,7 @@ public class Modificadores {
                 
                 if (encontrado == true){
                     //modificamos el email
-                    String email = JOptionPane.showInputDialog(null,"Digite el email del cliente a modificar: " );
+                    String email = JOptionPane.showInputDialog(null,"Digite el email nuevo del cliente a modificar: " );
                     listaClientes[index].setEmail(email);
                     break;
                 }else{

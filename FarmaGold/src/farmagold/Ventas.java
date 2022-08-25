@@ -3,30 +3,30 @@ package farmagold;
 
 public class Ventas {
     private long idFactura;
-    private String usuario;
     private long clienteID;
     private String nombreCliente;
     private String compra;
-    private int monto;
+    private double monto;
+    private boolean active;
     
     
     // constructor 
     public Ventas() {
         this.idFactura = 0;
-        this.usuario = "";
         this.clienteID = 0;
         this.nombreCliente = "";
         this.compra = "";
         this.monto = 0;
+        this.active = false;
     }
     
-    public Ventas(long idFactura, String usuario, long clienteID, String nombreCliente, String compra, int monto){
+    public Ventas(long idFactura, long clienteID, String nombreCliente, String compra, int monto){
         this.idFactura = idFactura;
-        this.usuario = usuario;
         this.clienteID = clienteID;
         this.nombreCliente = nombreCliente;
         this.compra = compra;
         this.monto = monto;
+        this.active = true;
     }
     
     
@@ -38,14 +38,6 @@ public class Ventas {
 
     public void setIdFactura(long idFactura) {
         this.idFactura = idFactura;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public long getClienteID() {
@@ -72,13 +64,23 @@ public class Ventas {
         this.compra = compra;
     }
 
-    public int getMonto() {
+    public double getMonto() {
         return monto;
     }
 
-    public void setMonto(int monto) {
+    public void setMonto(double monto) {
         this.monto = monto;
     }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+    
+    
 
     
     
