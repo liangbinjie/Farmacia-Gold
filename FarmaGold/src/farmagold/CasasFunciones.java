@@ -8,13 +8,14 @@ public class CasasFunciones {
     }
    
    public void mostrarMenu(Casas listaCasas[]){
-      while(true){
+       boolean running = true;
+      while(running){
 
          int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, """
                                                                    ***CATALOGO DE CASAS FABRICANTES***
                                                                    
-                                                                   1. Llenar Informacion
-                                                                   2. Mostrar Informacion
+                                                                   1. Agregar Casa farmaceutica
+                                                                   2. Mostrar Casas farmaceuticas
                                                                    3. Salir
                                                                    
                                                                    Digite su opcion: """));
@@ -29,7 +30,7 @@ public class CasasFunciones {
                  mostrarCasas(listaCasas);
              }
              case 3 -> {
-                 break;
+                 running = false;
              }
              default -> {
                 JOptionPane.showMessageDialog(null,
@@ -63,6 +64,7 @@ public class CasasFunciones {
            
            if (listaCasas[i].isActive() == true ) {
                s += "Nombre de la casa farmaceutica: " + listaCasas[i].getNombre() + "\nPais de origen: " + listaCasas[i].getPaisOrigen();
+               JOptionPane.showMessageDialog(null, s);
            }
        }
    }
