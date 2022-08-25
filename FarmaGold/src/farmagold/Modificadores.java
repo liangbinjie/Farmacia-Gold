@@ -3,11 +3,6 @@ import javax.swing.*;
 
 public class Modificadores {
     
-    public enum Estados {
-        Activo,
-        Inactivo
-    }
-    
     public void modificarEmpleado(Empleados listaEmpleados[]) {
         while(true) {
             int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Que desea modificar?\n(1) Identificacion\n(2) Nombre\n(3) Nombre usuario\n(4) Contrasena\n(5) Estatus"));
@@ -118,6 +113,8 @@ public class Modificadores {
                     JOptionPane.showMessageDialog(null, "Empleado no encontrado");
                     break;
                 } 
+            } else if (opcion == 6) {
+                break; 
             }
         }
 
@@ -244,6 +241,8 @@ public class Modificadores {
                     JOptionPane.showMessageDialog(null, "Cliente no encontrado");
                     break;
                 }
+            } else if (opcion == 6) {
+                break;
             }
             
                 
@@ -251,4 +250,3 @@ public class Modificadores {
         }
         
     }
-
